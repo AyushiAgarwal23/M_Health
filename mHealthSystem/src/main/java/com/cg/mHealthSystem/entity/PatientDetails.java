@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PatientDetailsTable")
-public class PatientDetailsTableEntity {
+public class PatientDetails {
 	
 	@Id
 	@Column
@@ -123,11 +123,11 @@ public class PatientDetailsTableEntity {
 	public void setIdProof(String idProof) {
 		this.idProof = idProof;
 	}
-	public PatientDetailsTableEntity() {
+	public PatientDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PatientDetailsTableEntity(Integer patientId, Integer userId, Integer recordId, String firstName,
+	public PatientDetails(Integer patientId, Integer userId, Integer recordId, String firstName,
 			String lastName, String middleName, String phoneNo, String gender, String dateOfBirth, String street,
 			String city, String state, String pincode, String idProof) {
 		super();
