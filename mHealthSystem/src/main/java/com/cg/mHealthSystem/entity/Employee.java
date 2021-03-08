@@ -6,22 +6,23 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
 	@Id
-	public int empId;
-	public String firstName;
-	public String middleName ;
-	public String  lastName ;
-	public String mobileNo;
-	public String gender;
-	public String street ;
-	public String dateOfBirth;
-	public String city ;
-	public String state ;
-	public String pincode ;
-	public String idProof ;
-	public int getEmpId() {
+	private Integer empId;
+	private String firstName;
+	private String middleName ;
+	private String  lastName ;
+	private String mobileNo;
+	private String gender;
+	private String street ;
+	private String dateOfBirth;
+	private String city ;
+	private String state ;
+	private String pincode ;
+	private String idProof ;
+	
+	public Integer getEmpId() {
 		return empId;
 	}
-	public void setEmpId(int empId) {
+	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
 	public String getFirstName() {
@@ -94,7 +95,7 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Employee(int empId, String firstName, String middleName, String lastName, String mobileNo, String gender,
+	public Employee(Integer empId, String firstName, String middleName, String lastName, String mobileNo, String gender,
 			String street, String dateOfBirth, String city, String state, String pincode, String idProof) {
 		super();
 		this.empId = empId;

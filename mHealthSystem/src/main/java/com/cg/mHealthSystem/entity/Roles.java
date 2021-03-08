@@ -6,12 +6,12 @@ import javax.persistence.Id;
 @Entity
 public class Roles {
 	@Id
-	public int roleId;
-	public String roleName;
-	public int getRoleId() {
+	private Integer roleId;
+	private String roleName;
+	private Integer getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	public String getRoleName() {
@@ -20,7 +20,7 @@ public class Roles {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	public Roles(int roleId, String roleName) {
+	public Roles(Integer roleId, String roleName) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;

@@ -6,29 +6,29 @@ import javax.persistence.Id;
 @Entity
 public class Appointments {
 	@Id
-	public int appointmentId;
-	public int doctorId;
-	public int patientId;
-	public String startTime;
-	public String endTime;
-	public String createdAt;
-	public String deletedAt;
+	private Integer appointmentId;
+	private Integer doctorId;
+	private Integer patientId;
+	private String startTime;
+	private String endTime;
+	private String createdAt;
+	private String deletedAt;
 	public int getAppointmentId() {
 		return appointmentId;
 	}
-	public void setAppointmentId(int appointmentId) {
+	public void setAppointmentId(Integer appointmentId) {
 		this.appointmentId = appointmentId;
 	}
-	public int getDoctorId() {
+	public Integer getDoctorId() {
 		return doctorId;
 	}
-	public void setDoctorId(int doctorId) {
+	public void setDoctorId(Integer doctorId) {
 		this.doctorId = doctorId;
 	}
-	public int getPatientId() {
+	public Integer getPatientId() {
 		return patientId;
 	}
-	public void setPatientId(int patientId) {
+	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
 	public String getStartTime() {

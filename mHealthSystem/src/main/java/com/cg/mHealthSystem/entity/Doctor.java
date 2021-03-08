@@ -6,42 +6,42 @@ import javax.persistence.Id;
 @Entity
 public class Doctor {
     @Id
-	public int doctorId;
-	public  int userId;
-	public int empId;
-	public int deptId;
-	public int consultingFee;
-	public int getDoctorId() {
+    private Integer doctorId;
+    private  Integer userId;
+    private Integer empId;
+    private Integer deptId;
+    private Integer consultingFee;
+	public Integer getDoctorId() {
 		return doctorId;
 	}
-	public void setDoctorId(int doctorId) {
+	public void setDoctorId(Integer doctorId) {
 		this.doctorId = doctorId;
 	}
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public int getEmpId() {
+	public Integer getEmpId() {
 		return empId;
 	}
-	public void setEmpId(int empId) {
+	public void setEmpId(Integer empId) {
 		this.empId = empId;
 	}
-	public int getDeptId() {
+	public Integer getDeptId() {
 		return deptId;
 	}
-	public void setDeptId(int deptId) {
+	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
-	public int getConsultingFee() {
+	public Integer getConsultingFee() {
 		return consultingFee;
 	}
-	public void setConsultingFee(int consultingFee) {
+	public void setConsultingFee(Integer consultingFee) {
 		this.consultingFee = consultingFee;
 	}
-	public Doctor(int doctorId, int userId, int empId, int deptId, int consultingFee) {
+	public Doctor(Integer doctorId, Integer userId, Integer empId, Integer deptId, Integer consultingFee) {
 		super();
 		this.doctorId = doctorId;
 		this.userId = userId;

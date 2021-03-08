@@ -7,29 +7,29 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 	@Id
-	public int userId;
-	public int roleId;
-	public String firstName;
-	public String emailId;
-	public String password;
+	private Integer userId;
+	private Integer roleId;
+	private String firstName;
+	private String emailId;
+	private String password;
 	@OneToOne
-	public Doctor doctor ;
+	private Doctor doctor ;
 	@OneToOne
-	public Roles role;
+	private Roles role;
 	@OneToOne
-	public Nurse nurse ;
+	private Nurse nurse ;
 	@OneToOne
-	public PatientDetails patientdetails;
-	public int getUserId() {
+	private PatientDetails patientdetails;
+	public Integer getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	public String getFirstName() {
@@ -50,7 +50,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public User(int userId, int roleId, String firstName, String emailId, String password) {
+	public User(Integer userId, Integer roleId, String firstName, String emailId, String password) {
 		super();
 		this.userId = userId;
 		this.roleId = roleId;
