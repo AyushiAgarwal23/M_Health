@@ -1,5 +1,11 @@
 package com.cg.mHealthSystem.Repository;
 
-public interface DoctorRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cg.mHealthSystem.entity.Doctor;
+
+
+
+public interface DoctorRepository  extends JpaRepository< Doctor,Integer > {
 
 }
