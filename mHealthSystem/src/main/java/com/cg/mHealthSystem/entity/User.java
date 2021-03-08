@@ -2,6 +2,7 @@ package com.cg.mHealthSystem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -11,6 +12,14 @@ public class User {
 	public String firstName;
 	public String emailId;
 	public String password;
+	@OneToOne
+	public Doctor doctor ;
+	@OneToOne
+	public Roles role;
+	@OneToOne
+	public Nurse nurse ;
+	@OneToOne
+	public PatientDetails patientdetails;
 	public int getUserId() {
 		return userId;
 	}
