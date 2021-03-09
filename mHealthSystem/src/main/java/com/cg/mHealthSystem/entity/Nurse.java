@@ -56,7 +56,7 @@ public Nurse(Integer nurseId, Integer userId, Integer empId, Integer deptId, Int
 }
 public Nurse() {
 	super();
-	// TODO Auto-generated constructor stub
+
 }
 
 
