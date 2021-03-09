@@ -10,10 +10,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.cg.mHealthSystem.Repository.RolesRepository;
+
 import com.cg.mHealthSystem.Repository.UserRepository;
-import com.cg.mHealthSystem.entity.Appointments;
-import com.cg.mHealthSystem.entity.Roles;
+
 import com.cg.mHealthSystem.entity.User;
 
 import junit.framework.Assert;

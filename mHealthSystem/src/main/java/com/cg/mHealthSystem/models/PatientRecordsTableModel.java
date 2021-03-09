@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 public class PatientRecordsTableModel {
 	public Integer recordId;
 	public Integer patientId;
-	public Integer appointmentId;
+	
 	public String healthComplication;
 	public String prescription;
 	public Integer getRecordId() {
@@ -20,12 +20,7 @@ public class PatientRecordsTableModel {
 	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-	public Integer getAppointmentId() {
-		return appointmentId;
-	}
-	public void setAppointmentId(Integer appointmentId) {
-		this.appointmentId = appointmentId;
-	}
+	
 	public String getHealthComplication() {
 		return healthComplication;
 	}

@@ -8,7 +8,14 @@ public class Nurse {
 	private Integer deptId;
 	private Integer userId;
 	private Integer empId;
+	private Integer nurseFee;
 	
+	public Integer getNurseFee() {
+		return nurseFee;
+	}
+	public void setNurseFee(Integer nurseFee) {
+		this.nurseFee = nurseFee;
+	}
 	public Integer getNurseId() {
 		return nurseId;
 	}
