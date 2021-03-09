@@ -1,3 +1,4 @@
+
 package com.cg.mHealthSystem.entity;
 
 import javax.persistence.Entity;
@@ -63,3 +64,4 @@ public Nurse() {
  
  
 }
+
