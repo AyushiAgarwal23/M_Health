@@ -37,7 +37,7 @@ public class RolesRepositoryTest {
 	
 	
 	
-	/*@Test
+	@Test
 	public void testGetAllRoles() throws Exception
 	{
 		Roles role1 = new Roles();
@@ -46,8 +46,8 @@ public class RolesRepositoryTest {
 		
 		
 		Roles role2 = new Roles();
-		role1.setRoleId(102);
-		role1.setRoleName("Ram");
+		role2.setRoleId(102);
+		role2.setRoleName("Ram");
 				
 		testEntityManager.persist(role1);
         testEntityManager.persist(role2);
@@ -55,8 +55,8 @@ public class RolesRepositoryTest {
         List<Roles> List = (List<Roles>) adao.findAll();
         Assert.assertEquals(2, List.size());
 	}
-	*/
-
+	
+	
 	public Roles getRole() {
 		// TODO Auto-generated method stub
 		
@@ -65,7 +65,7 @@ public class RolesRepositoryTest {
 		role.setRoleName("Raju");
 		return role;
 	}
-/*	@Test
+	@Test
 	public void testDeleteRoleById() throws Exception{
 		Roles role1 = new Roles();
 		role1.setRoleId(101);
@@ -97,5 +97,5 @@ public class RolesRepositoryTest {
 		testEntityManager.persist(getFromDb);
 		assertThat(getFromDb.getRoleName()).isEqualTo("Sam");
 		
-	}*/
+	}
 }
