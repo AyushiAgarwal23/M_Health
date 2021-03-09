@@ -1,6 +1,7 @@
 package com.cg.mHealthSystem.Repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import org.springframework.data.repository.CrudRepository;
 
 import com.cg.mHealthSystem.entity.Employee;
 
@@ -8,6 +9,6 @@ import com.cg.mHealthSystem.entity.Employee;
 
 
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
+public interface EmployeeRepository extends CrudRepository<Employee, Integer>{
 
 }

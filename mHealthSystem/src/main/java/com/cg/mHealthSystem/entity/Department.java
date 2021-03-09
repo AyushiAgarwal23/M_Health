@@ -6,14 +6,14 @@ import javax.persistence.Id;
 @Entity
 public class Department {
 	@Id
-	public int deptId;
-	public String deptName;
-	public String phoneNo;
-	public String emailId;
-	public int getDeptId() {
+	private Integer deptId;
+	private String deptName;
+	private String phoneNo;
+	private String emailId;
+	public Integer getDeptId() {
 		return deptId;
 	}
-	public void setDeptId(int deptId) {
+	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
 	public String getDeptName() {
@@ -34,7 +34,7 @@ public class Department {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public Department(int deptId, String deptName, String phoneNo, String emailId) {
+	public Department(Integer deptId, String deptName, String phoneNo, String emailId) {
 		super();
 		this.deptId = deptId;
 		this.deptName = deptName;

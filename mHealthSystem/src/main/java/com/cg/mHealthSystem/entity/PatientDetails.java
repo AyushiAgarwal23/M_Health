@@ -4,6 +4,7 @@ package com.cg.mHealthSystem.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,33 +13,37 @@ public class PatientDetails {
 	
 	@Id
 	@Column
-	public Integer patientId;
+	private Integer patientId;
 	@Column
-	public Integer userId;
+	private Integer userId;
 	@Column
-	public Integer recordId;
+	private Integer recordId;
 	@Column
-	public String firstName;
+	private String firstName;
 	@Column
-	public String lastName;
+	private String lastName;
 	@Column
-    public String middleName;
+	private String middleName;
 	@Column
-    public String phoneNo;
+	private String phoneNo;
 	@Column
-    public String gender;
+	private String gender;
 	@Column
-    public String dateOfBirth;
+	private String dateOfBirth;
 	@Column
-    public String street;
+	private String street;
 	@Column
-    public String city;
+	private String city;
 	@Column
-    public String state;
+	private String state;
 	@Column
-    public String pincode;
+	private String pincode;
 	@Column
-    public String idProof;
+	private String idProof;
+	@OneToOne
+	public PatientRecords patientrecords;
+	@OneToOne
+	public Appointments appointment ;
 	public Integer getPatientId() {
 		return patientId;
 	}

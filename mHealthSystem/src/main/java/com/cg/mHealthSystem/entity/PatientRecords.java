@@ -6,29 +6,23 @@ import javax.persistence.Id;
 @Entity
 public class PatientRecords {
 	@Id
-	public int recordId;
-	public int patientId;
-	public int appointmentId;
-	public String prescription ;
-	public String healthComplication ;
-	public int getRecordId() {
+	private Integer recordId;
+	private Integer patientId;
+	private String prescription ;
+	private String healthComplication ;
+	public Integer getRecordId() {
 		return recordId;
 	}
-	public void setRecordId(int recordId) {
+	public void setRecordId(Integer recordId) {
 		this.recordId = recordId;
 	}
-	public int getPatientId() {
+	public Integer getPatientId() {
 		return patientId;
 	}
-	public void setPatientId(int patientId) {
+	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-	public int getAppointmentId() {
-		return appointmentId;
-	}
-	public void setAppointmentId(int appointmentId) {
-		this.appointmentId = appointmentId;
-	}
+	
 	public String getPrescription() {
 		return prescription;
 	}
@@ -41,12 +35,12 @@ public class PatientRecords {
 	public void setHealthComplication(String healthComplication) {
 		this.healthComplication = healthComplication;
 	}
-	public PatientRecords(int recordId, int patientId, int appointmentId, String prescription,
+	public PatientRecords(Integer recordId, Integer patientId, String prescription,
 			String healthComplication) {
 		super();
 		this.recordId = recordId;
 		this.patientId = patientId;
-		this.appointmentId = appointmentId;
+		
 		this.prescription = prescription;
 		this.healthComplication = healthComplication;
 	}
