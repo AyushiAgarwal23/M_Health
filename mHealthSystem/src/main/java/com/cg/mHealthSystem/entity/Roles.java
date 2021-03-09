@@ -8,7 +8,7 @@ public class Roles {
 	@Id
 	private Integer roleId;
 	private String roleName;
-	private Integer getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 	public void setRoleId(Integer roleId) {
