@@ -44,7 +44,7 @@ public class NurseRepositoryTest {
 		
 		Nurse nurse = new Nurse();
 		
-		nurse.setDeptId(1234);
+		//nurse.setDeptId(1234);
 	//	nurse.setEmpId(4321);
 		nurse.setNurseId(7894);
 	//	nurse.setUserId(4987);
@@ -59,7 +59,7 @@ public class NurseRepositoryTest {
 	{
         Nurse nurse1 = new Nurse();
 		
-		nurse1.setDeptId(1234);
+		//nurse1.setDeptId(1234);
 //		nurse1.setEmpId(4321);
 		nurse1.setNurseId(7894);
 //		nurse1.setUserId(4987);
@@ -68,7 +68,7 @@ public class NurseRepositoryTest {
 		
         Nurse nurse2 = new Nurse();
 		
-		nurse2.setDeptId(7777);
+		//nurse2.setDeptId(7777);
 	//	nurse2.setEmpId(7778);
 		nurse2.setNurseId(8888);
 		//nurse2.setUserId(4999);
@@ -87,7 +87,7 @@ public class NurseRepositoryTest {
 		
         Nurse nurse1 = new Nurse();
 		
-		nurse1.setDeptId(1234);
+		//nurse1.setDeptId(1234);
 	//	nurse1.setEmpId(4321);
 		nurse1.setNurseId(7894);
 	//	nurse1.setUserId(4987);
@@ -96,7 +96,7 @@ public class NurseRepositoryTest {
 		
         Nurse nurse2 = new Nurse();
 		
-		nurse2.setDeptId(7777);
+		//nurse2.setDeptId(7777);
 	//	nurse2.setEmpId(7778);
 		nurse2.setNurseId(8888);
 	//	nurse2.setUserId(4999);
@@ -117,7 +117,7 @@ public class NurseRepositoryTest {
 	{
         Nurse nurse1 = new Nurse();
 		
-		nurse1.setDeptId(1234);
+		//nurse1.setDeptId(1234);
 	//	nurse1.setEmpId(4321);
 		nurse1.setNurseId(7894);
 	//	nurse1.setUserId(4987);
