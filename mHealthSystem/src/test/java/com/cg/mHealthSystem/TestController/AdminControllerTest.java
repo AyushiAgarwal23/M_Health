@@ -23,6 +23,7 @@ import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Employee;
 import com.cg.mHealthSystem.entity.Nurse;
+import com.cg.mHealthSystem.entity.PatientDetails;
 import com.cg.mHealthSystem.services.AdminService;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -169,7 +170,42 @@ public class AdminControllerTest {
 	}
 	
     
-	
+    @Test
+    public void testDeleteDepartment() throws Exception{
+        String URI = "/admin/deleteDepartment/{deptId}";
+        Department department = new Department();
+		department.setDeptId(1);
+		department.setDeptName("gyno");
+		department.setEmailId("gynco@capg.com");
+		department.setPhoneNo("723875");
+		String jsonInput = this.converttoJson(department);
+        
+        Mockito.when(adminservice.removeDepartment(Mockito.any())).thenReturn(true);
+        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI, 1).accept(MediaType.
+        		APPLICATION_JSON)).andReturn();
+        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+    }
+	@Test
+    public void testDeletePatient() throws Exception{
+        String URI = "/admin/deletePatient/{patientId}";
+        PatientDetails patient = new PatientDetails();
+        patient.setUserId(10);
+        patient.setFirstName("ayush");
+        patient.setLastName("ranjan");
+		String jsonInput = this.converttoJson(patient);
+        
+        Mockito.when(adminservice.removePatient(Mockito.any())).thenReturn(true);
+        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI, 10).accept(MediaType.
+        		APPLICATION_JSON)).andReturn();
+        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+
+        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+
+    }
+    
     private String converttoJson(Object ticket) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(ticket);
