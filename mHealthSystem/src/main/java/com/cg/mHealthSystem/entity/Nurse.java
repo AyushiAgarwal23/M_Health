@@ -1,6 +1,7 @@
 
 package com.cg.mHealthSystem.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +15,11 @@ public class Nurse {
  @GeneratedValue(strategy = GenerationType.AUTO)
  private Integer nurseId;
  private Integer userId;
- private Integer empId;
- private Integer deptId;
+ 
+ @OneToOne(cascade = CascadeType.ALL)
+@JoinColumn(name ="empId")
+ private Employee employee;
+
  private Integer nurseFee;
 public Integer getNurseId() {
 	return nurseId;
@@ -29,31 +33,26 @@ public Integer getUserId() {
 public void setUserId(Integer userId) {
 	this.userId = userId;
 }
-public Integer getEmpId() {
-	return empId;
-}
-public void setEmpId(Integer empId) {
-	this.empId = empId;
-}
-public Integer getDeptId() {
-	return deptId;
-}
-public void setDeptId(Integer deptId) {
-	this.deptId = deptId;
-}
+
 public Integer getNurseFee() {
 	return nurseFee;
 }
 public void setNurseFee(Integer nurseFee) {
 	this.nurseFee = nurseFee;
 }
-public Nurse(Integer nurseId, Integer userId, Integer empId, Integer deptId, Integer nurseFee) {
+
+public Nurse(Integer nurseId, Integer userId, Employee employee, Integer nurseFee) {
 	super();
 	this.nurseId = nurseId;
 	this.userId = userId;
-	this.empId = empId;
-	this.deptId = deptId;
+	this.employee = employee;
 	this.nurseFee = nurseFee;
+}
+public Employee getEmployee() {
+	return employee;
+}
+public void setEmployee(Employee employee) {
+	this.employee = employee;
 }
 public Nurse() {
 	super();
