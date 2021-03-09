@@ -1,11 +1,14 @@
 package com.cg.mHealthSystem.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Appointments {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer appointmentId;
 	private Integer doctorId;
 	private Integer patientId;
@@ -68,7 +71,7 @@ public class Appointments {
 	}
 	public Appointments() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	
