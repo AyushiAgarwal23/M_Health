@@ -43,16 +43,16 @@ public class DoctorRepositoryTest {
 		
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
-		doctor1.setUserId(111);
-		doctor1.setEmpId(11111);
-		doctor1.setDeptId(1010101);
+		//doctor1.setUserId(111);
+		//doctor1.setEmpId(11111);
+		//doctor1.setDeptId(1010101);
 		doctor1.setConsultingFee(5000);
 		
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
-		doctor2.setUserId(222);
-		doctor2.setEmpId(22222);
-		doctor2.setDeptId(20202020);
+		//doctor2.setUserId(222);
+		//doctor2.setEmpId(22222);
+		//doctor2.setDeptId(20202020);
 		doctor2.setConsultingFee(9000);
 		
 		testEntityManager.persist(doctor1);
@@ -66,9 +66,9 @@ public class DoctorRepositoryTest {
 		
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
-		doctor1.setUserId(111);
-		doctor1.setEmpId(11111);
-		doctor1.setDeptId(1010101);
+		//doctor1.setUserId(111);
+		//doctor1.setEmpId(11111);
+		//doctor1.setDeptId(1010101);
 		doctor1.setConsultingFee(5000);
 		
 		return doctor1;
@@ -77,16 +77,16 @@ public class DoctorRepositoryTest {
 	public void testDeleteDoctorById() throws Exception{
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
-		doctor1.setUserId(111);
+		/*doctor1.setUserId(111);
 		doctor1.setEmpId(11111);
-		doctor1.setDeptId(1010101);
+		doctor1.setDeptId(1010101);*/
 		doctor1.setConsultingFee(5000);
 		
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
-		doctor2.setUserId(222);
-		doctor2.setEmpId(22222);
-		doctor2.setDeptId(20202020);
+		//doctor2.setUserId(222);
+		//doctor2.setEmpId(22222);
+		//doctor2.setDeptId(20202020);
 		doctor2.setConsultingFee(9000);
 		
 		Doctor doctor = testEntityManager.persist(doctor1);
@@ -102,15 +102,15 @@ public class DoctorRepositoryTest {
 	{
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
-		doctor2.setUserId(222);
-		doctor2.setEmpId(22222);
-		doctor2.setDeptId(20202020);
+		//doctor2.setUserId(222);
+		//doctor2.setEmpId(22222);
+		//doctor2.setDeptId(20202020);
 		doctor2.setConsultingFee(9000);
 		testEntityManager.persist(doctor2);
 		Doctor getFromDb = adao.findById(102).get();
-		getFromDb.setUserId(999);
+		//getFromDb.setUserId(999);
 		testEntityManager.persist(getFromDb);
-		assertThat(getFromDb.getUserId()).isEqualTo(999);
+		//assertThat(getFromDb.getUserId()).isEqualTo(999);
 	}
 	
 }

@@ -43,7 +43,7 @@ public class UserRepositoryTest {
 		// TODO Auto-generated method stub
 		
 		User user = new User();
-		user.setRoleId(1234);
+		//user.setRoleId(1234);
 		user.setUserId(4321);
 		user.setPassword("apple");
 		user.setEmailId("raj@gmail.com");
@@ -57,7 +57,7 @@ public class UserRepositoryTest {
 	{
 		User user1  = new User();
 		
-		user1.setRoleId(4545);
+		//user1.setRoleId(4545);
 		user1.setUserId(4961);
 		user1.setPassword("ap9ple");
 		user1.setEmailId("raj@gmail9.com");
@@ -65,7 +65,7 @@ public class UserRepositoryTest {
 		
         User user2  = new User();
 		
-		user2.setRoleId(4845);
+		//user2.setRoleId(4845);
 		user2.setUserId(4881);
 		user2.setPassword("ap98ple");
 		user2.setEmailId("raj@gmail98.com");
@@ -83,7 +83,7 @@ public class UserRepositoryTest {
 		
 		User user1  = new User();
 		
-		user1.setRoleId(4545);
+		//user1.setRoleId(4545);
 		user1.setUserId(4961);
 		user1.setPassword("ap9ple");
 		user1.setEmailId("raj@gmail9.com");
@@ -91,7 +91,7 @@ public class UserRepositoryTest {
 		
         User user2  = new User();
 		
-		user2.setRoleId(4845);
+		//user2.setRoleId(4845);
 		user2.setUserId(4881);
 		user2.setPassword("ap98ple");
 		user2.setEmailId("raj@gmail98.com");
@@ -112,7 +112,7 @@ public class UserRepositoryTest {
 	{
         User user1  = new User();
 		
-		user1.setRoleId(4545);
+		//user1.setRoleId(4545);
 		user1.setUserId(4961);
 		user1.setPassword("ap9ple");
 		user1.setEmailId("raj@gmail9.com");
