@@ -2,13 +2,17 @@ package com.cg.mHealthSystem.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Doctor {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer doctorId;
     
    // private  Integer userId;
@@ -17,10 +21,10 @@ public class Doctor {
     @OneToOne
    	@JoinColumn(name ="empId")
     private Employee employee ;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "appointmentId")
+    private Appointments appointments;
     
-    @OneToOne
-   	@JoinColumn(name ="userId")
-    private User user ;
    // private Integer deptId;
     @OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="deptId")
@@ -38,12 +42,14 @@ public class Doctor {
 		this.employee = employee;
 	}
 
-	public User getUser() {
-		return user;
+	
+
+	public Appointments getAppointments() {
+		return appointments;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setAppointments(Appointments appointments) {
+		this.appointments = appointments;
 	}
 
 	public Department getDepartment() {
@@ -94,11 +100,13 @@ public class Doctor {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Doctor(Integer doctorId, Employee employee, User user, Department department, Integer consultingFee) {
+
+	public Doctor(Integer doctorId, Employee employee, Appointments appointments, Department department,
+			Integer consultingFee) {
 		super();
 		this.doctorId = doctorId;
 		this.employee = employee;
-		this.user = user;
+		this.appointments = appointments;
 		this.department = department;
 		this.consultingFee = consultingFee;
 	}
