@@ -45,9 +45,9 @@ public class NurseRepositoryTest {
 		Nurse nurse = new Nurse();
 		
 		nurse.setDeptId(1234);
-		nurse.setEmpId(4321);
+	//	nurse.setEmpId(4321);
 		nurse.setNurseId(7894);
-		nurse.setUserId(4987);
+	//	nurse.setUserId(4987);
 		nurse.setNurseFee(500);
 		
 		
@@ -60,18 +60,18 @@ public class NurseRepositoryTest {
         Nurse nurse1 = new Nurse();
 		
 		nurse1.setDeptId(1234);
-		nurse1.setEmpId(4321);
+//		nurse1.setEmpId(4321);
 		nurse1.setNurseId(7894);
-		nurse1.setUserId(4987);
+//		nurse1.setUserId(4987);
 		nurse1.setNurseFee(500);
 		
 		
         Nurse nurse2 = new Nurse();
 		
 		nurse2.setDeptId(7777);
-		nurse2.setEmpId(7778);
+	//	nurse2.setEmpId(7778);
 		nurse2.setNurseId(8888);
-		nurse2.setUserId(4999);
+		//nurse2.setUserId(4999);
 		nurse2.setNurseFee(500);
 		
 		
@@ -88,18 +88,18 @@ public class NurseRepositoryTest {
         Nurse nurse1 = new Nurse();
 		
 		nurse1.setDeptId(1234);
-		nurse1.setEmpId(4321);
+	//	nurse1.setEmpId(4321);
 		nurse1.setNurseId(7894);
-		nurse1.setUserId(4987);
+	//	nurse1.setUserId(4987);
 		nurse1.setNurseFee(500);
 		
 		
         Nurse nurse2 = new Nurse();
 		
 		nurse2.setDeptId(7777);
-		nurse2.setEmpId(7778);
+	//	nurse2.setEmpId(7778);
 		nurse2.setNurseId(8888);
-		nurse2.setUserId(4999);
+	//	nurse2.setUserId(4999);
 		nurse2.setNurseFee(500);
 		
 		Nurse nurse = testEntityManager.persist(nurse1);
@@ -118,9 +118,9 @@ public class NurseRepositoryTest {
         Nurse nurse1 = new Nurse();
 		
 		nurse1.setDeptId(1234);
-		nurse1.setEmpId(4321);
+	//	nurse1.setEmpId(4321);
 		nurse1.setNurseId(7894);
-		nurse1.setUserId(4987);
+	//	nurse1.setUserId(4987);
 		nurse1.setNurseFee(500);
 		
 		testEntityManager.persist(nurse1);

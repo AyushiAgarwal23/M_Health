@@ -2,13 +2,22 @@ package com.cg.mHealthSystem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Nurse {
  @Id
  private Integer nurseId;
- private Integer userId;
- private Integer empId;
+ 
+ @OneToOne
+ @JoinColumn(name="userId")
+ private User user;
+   
+ @OneToOne
+ @JoinColumn(name ="empId")
+ private Employee employee ;
+ //private Integer empId;
  private Integer deptId;
  private Integer nurseFee;
 public Integer getNurseId() {
@@ -17,18 +26,20 @@ public Integer getNurseId() {
 public void setNurseId(Integer nurseId) {
 	this.nurseId = nurseId;
 }
-public Integer getUserId() {
-	return userId;
+
+public User getUser() {
+	return user;
 }
-public void setUserId(Integer userId) {
-	this.userId = userId;
+public void setUser(User user) {
+	this.user = user;
 }
-public Integer getEmpId() {
-	return empId;
+public Employee getEmployee() {
+	return employee;
 }
-public void setEmpId(Integer empId) {
-	this.empId = empId;
+public void setEmployee(Employee employee) {
+	this.employee = employee;
 }
+
 public Integer getDeptId() {
 	return deptId;
 }
@@ -41,11 +52,12 @@ public Integer getNurseFee() {
 public void setNurseFee(Integer nurseFee) {
 	this.nurseFee = nurseFee;
 }
-public Nurse(Integer nurseId, Integer userId, Integer empId, Integer deptId, Integer nurseFee) {
+
+public Nurse(Integer nurseId, User user, Employee employee, Integer deptId, Integer nurseFee) {
 	super();
 	this.nurseId = nurseId;
-	this.userId = userId;
-	this.empId = empId;
+	this.user = user;
+	this.employee = employee;
 	this.deptId = deptId;
 	this.nurseFee = nurseFee;
 }
