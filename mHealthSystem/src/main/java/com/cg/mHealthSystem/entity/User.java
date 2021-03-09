@@ -2,24 +2,23 @@ package com.cg.mHealthSystem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Table123")
 public class User {
 	@Id
 	private Integer userId;
-	private Integer roleId;
 	private String firstName;
 	private String emailId;
 	private String password;
+	
 	@OneToOne
-	private Doctor doctor ;
-	@OneToOne
+	@JoinColumn(name ="roleId")
 	private Roles role;
-	@OneToOne
-	private Nurse nurse ;
-	@OneToOne
-	private PatientDetails patientdetails;
+	
 	
 	public Integer getUserId() {
 		return userId;
@@ -27,12 +26,7 @@ public class User {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public Integer getRoleId() {
-		return roleId;
-	}
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -51,17 +45,16 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public User(Integer userId, Integer roleId, String firstName, String emailId, String password) {
+	public User(Integer userId, String firstName, String emailId, String password) {
 		super();
 		this.userId = userId;
-		this.roleId = roleId;
+		
 		this.firstName = firstName;
 		this.emailId = emailId;
 		this.password = password;
 	}
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

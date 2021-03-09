@@ -38,7 +38,7 @@ public class PatientRecordsTableModel {
 		super();
 		this.recordId = recordId;
 		this.patientId = patientId;
-		this.appointmentId = appointmentId;
+		//this.appointmentId = appointmentId;
 		this.healthComplication = healthComplication;
 		this.prescription = prescription;
 	}
