@@ -20,6 +20,7 @@ public class User {
 	private Nurse nurse ;
 	@OneToOne
 	private PatientDetails patientdetails;
+	
 	public Integer getUserId() {
 		return userId;
 	}
