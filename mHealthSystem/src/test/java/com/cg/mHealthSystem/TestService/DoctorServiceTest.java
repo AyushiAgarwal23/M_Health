@@ -54,5 +54,11 @@ public class DoctorServiceTest {
 	        assertThat(doctorservice.addDoctor(doctor)).isEqualTo(doctor);
 		
 	}
+	@Test
+	public void TestViewAppointments()
+	{
+		
+		
+	}
 
 }
