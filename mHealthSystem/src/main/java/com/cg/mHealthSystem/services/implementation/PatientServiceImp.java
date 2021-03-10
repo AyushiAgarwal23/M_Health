@@ -4,6 +4,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 import com.cg.mHealthSystem.Repository.PatientDetailsRepository;
 import com.cg.mHealthSystem.Repository.PatientRecordsRepository;
@@ -58,16 +60,16 @@ public class PatientServiceImp implements PatientService{
 		return nDao.findAll();
 	}
 	
-//Book Appointments	
+//Book Appointments	by ID
 	@Autowired
 	private AppointmentsRepository aDao;
 	
 	@Override
-	public PatientDetails bookbyId(PatientDetails patientId) {
+	public Appointments bookbyId(Appointments appointment) {
 		
 		
 		// TODO Auto-generated method stub
-		return pDao.save(patientId);
+		return aDao.save(appointment);
 	}
 
 	
@@ -82,25 +84,22 @@ public class PatientServiceImp implements PatientService{
 
 //Update Profile	
 	@Override
-	public PatientDetails updateProfile(Integer patientId, String gender) {
+	public PatientDetails updateProfile(Integer patientId, String dateOfBirth) {
 		 PatientDetails patientDetails1 = pDao.findById(patientId).get();
-	        patientDetails1.setGender(gender);
+	        patientDetails1.setDateOfBirth(dateOfBirth);
 	        return pDao.save(patientDetails1);
 	}
 
-//Get Patient Id and Record Id
+//Get Patient Record Id
 	@Autowired
 	private PatientRecordsRepository rDao;
 	@Override
-	public PatientRecords getPatientById(Integer patientId) {
+	public PatientRecords retreivePatientRecordById(Integer patientId) {
 		// TODO Auto-generated method stub
 		return rDao.findById(patientId).get();
 	}
 
-	@Override
-	public PatientDetails getPatientRecordById(Integer recordId) {
-		return pDao.findById(recordId).get();
-	}
+	
 
 	
 
