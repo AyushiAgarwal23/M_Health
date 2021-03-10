@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class Doctor {
+	
 	private Integer doctorId;
 	private Integer empId;
 	private Integer userId;
