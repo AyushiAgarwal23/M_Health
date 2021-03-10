@@ -16,7 +16,7 @@ public class AdminSwagger {
 
 	@Bean
 	public Docket postsApi() {
-		return new Docket(DocumentationType.SWAGGER_2).apiInfo(metadata()).select().paths(regex("/admin.*")).build();
+		return new Docket(DocumentationType.SWAGGER_2).apiInfo(metadata()).select().paths(regex("/*")).build();
 	}
 	@SuppressWarnings("deprecation")
 	private ApiInfo metadata() {
