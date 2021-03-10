@@ -46,7 +46,7 @@ public class DoctorControllerTest {
 		appointment.setDeletedAt("2.2.2020");
 		appointment.setStartTime("7pm");
 		
-		
+		//
 		
 		String jsonInput = this.converttoJson(appointment);
 		
