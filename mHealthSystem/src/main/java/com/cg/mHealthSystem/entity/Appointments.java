@@ -16,6 +16,7 @@ public class Appointments {
 	private String endTime;
 	private String createdAt;
 	private String deletedAt;
+	
 	public int getAppointmentId() {
 		return appointmentId;
 	}

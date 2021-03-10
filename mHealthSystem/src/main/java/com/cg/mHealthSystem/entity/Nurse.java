@@ -19,8 +19,8 @@ public class Nurse {
  @OneToOne(cascade = CascadeType.ALL)
 @JoinColumn(name ="empId")
  private Employee employee;
+private Integer nurseFee;
 
- private Integer nurseFee;
 public Integer getNurseId() {
 	return nurseId;
 }

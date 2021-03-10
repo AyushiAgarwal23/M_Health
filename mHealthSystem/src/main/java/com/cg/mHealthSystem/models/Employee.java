@@ -1,3 +1,4 @@
+
 package com.cg.mHealthSystem.models;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -6,6 +7,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Employee {
+	private Integer empId;
+	public Integer getEmpId() {
+		return empId;
+	}
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
 	@NotNull
 	private String firstName;
 	@NotNull

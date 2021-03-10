@@ -9,7 +9,7 @@ import com.cg.mHealthSystem.entity.PatientRecords;
 
 public interface PatientService {
 	Iterable<Doctor> getAllDoctors();
-	Department filterByDepartment(Department department);
+	Iterable<Doctor> filterByDepartment(Integer departmentId, String deptName);
 	Iterable<Nurse> getAllNurse();
 	Appointments bookbyId(Appointments appointment);
 	Appointments viewById(Integer appointmentId);

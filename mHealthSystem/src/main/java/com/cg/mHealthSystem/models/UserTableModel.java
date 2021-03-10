@@ -1,4 +1,4 @@
-package com.cg.mHealthSystem.models;
+ package com.cg.mHealthSystem.models;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 

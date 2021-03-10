@@ -1,32 +1,20 @@
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
 
+import com.cg.mHealthSystem.entity.Employee;
+
 @Component
 
 public class Nurse {
 	private Integer nurseId;
-	private Integer deptId;
 	private Integer userId;
-	private Integer empId;
+	private Employee employee;
 	private Integer nurseFee;
-	
-	public Integer getNurseFee() {
-		return nurseFee;
-	}
-	public void setNurseFee(Integer nurseFee) {
-		this.nurseFee = nurseFee;
-	}
 	public Integer getNurseId() {
 		return nurseId;
 	}
 	public void setNurseId(Integer nurseId) {
 		this.nurseId = nurseId;
-	}
-	public Integer getDeptId() {
-		return deptId;
-	}
-	public void setDeptId(Integer deptId) {
-		this.deptId = deptId;
 	}
 	public Integer getUserId() {
 		return userId;
@@ -34,12 +22,31 @@ public class Nurse {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public Integer getEmpId() {
-		return empId;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
+	public Integer getNurseFee() {
+		return nurseFee;
+	}
+	public void setNurseFee(Integer nurseFee) {
+		this.nurseFee = nurseFee;
+	}
+	public Nurse(Integer nurseId, Integer userId, Employee employee, Integer nurseFee) {
+		super();
+		this.nurseId = nurseId;
+		this.userId = userId;
+		this.employee = employee;
+		this.nurseFee = nurseFee;
+	}
+	public Nurse() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
 	
 	
 

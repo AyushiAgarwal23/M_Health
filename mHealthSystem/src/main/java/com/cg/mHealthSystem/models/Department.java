@@ -1,3 +1,4 @@
+
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +10,14 @@ import javax.validation.constraints.Size;
 @Component
 
 public class Department {
+	private Integer deptId;
 	
+	public Integer getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(Integer deptId) {
+		this.deptId = deptId;
+	}
 	private String deptName;
 	@NotNull
 	@Size(min =10,max =10)
