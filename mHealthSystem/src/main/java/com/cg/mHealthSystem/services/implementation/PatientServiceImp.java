@@ -2,6 +2,8 @@ package com.cg.mHealthSystem.services.implementation;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import com.cg.mHealthSystem.Repository.PatientRecordsRepository;
 import com.cg.mHealthSystem.Repository.DepartmentRepository;
 import com.cg.mHealthSystem.Repository.DoctorRepository;
 import com.cg.mHealthSystem.Repository.NurseRepository;
+import com.cg.mHealthSystem.Controllers.PatientController;
 import com.cg.mHealthSystem.Repository.AppointmentsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
@@ -31,9 +34,11 @@ public class PatientServiceImp implements PatientService{
 
 	@Autowired
 	private  DoctorRepository  tDao;
+	private static final Logger logger=LoggerFactory.getLogger(PatientController.class);
 
 	@Override
 	public Iterable<Doctor> getAllDoctors() {
+		logger.info("In Patient Service, get all doctors method");
 		// TODO Auto-generated method stub
 		return tDao.findAll();
 	}
@@ -44,7 +49,7 @@ public class PatientServiceImp implements PatientService{
 	private DepartmentRepository dDao;
 	
 	@Override
-	public Department filterByDepartment(Department department) {
+	public Iterable<Doctor> filterByDepartment(Integer departmentId, String deptName) {
 		
 		// TODO Auto-generated method stub
 		return null;
@@ -56,7 +61,7 @@ public class PatientServiceImp implements PatientService{
 	
 	@Override
 	public Iterable<Nurse> getAllNurse() {
-	
+		logger.info("In PatientService, get all Nurses method");	
 		return nDao.findAll();
 	}
 	
@@ -66,9 +71,7 @@ public class PatientServiceImp implements PatientService{
 	
 	@Override
 	public Appointments bookbyId(Appointments appointment) {
-		
-		
-		// TODO Auto-generated method stub
+		logger.info("In PatientService, Book by id method");
 		return aDao.save(appointment);
 	}
 
@@ -76,9 +79,7 @@ public class PatientServiceImp implements PatientService{
 //View Appointments
 	@Override
 	public Appointments viewById(Integer appointmentId) {
-		
-		
-		// TODO Auto-generated method stub
+		logger.info("In PatientService, View by id method");
 		return aDao.findById(appointmentId).get();
 	}
 
@@ -86,8 +87,9 @@ public class PatientServiceImp implements PatientService{
 	@Override
 	public PatientDetails updateProfile(Integer patientId, String dateOfBirth) {
 		 PatientDetails patientDetails1 = pDao.findById(patientId).get();
-	        patientDetails1.setDateOfBirth(dateOfBirth);
-	        return pDao.save(patientDetails1);
+	     patientDetails1.setDateOfBirth(dateOfBirth);
+	     logger.info("In PatientService, update Profile method");
+	     return pDao.save(patientDetails1);
 	}
 
 //Get Patient Record Id
@@ -95,7 +97,7 @@ public class PatientServiceImp implements PatientService{
 	private PatientRecordsRepository rDao;
 	@Override
 	public PatientRecords retreivePatientRecordById(Integer patientId) {
-		// TODO Auto-generated method stub
+		logger.info("In PatientService, retreive Patient Record ById method");
 		return rDao.findById(patientId).get();
 	}
 

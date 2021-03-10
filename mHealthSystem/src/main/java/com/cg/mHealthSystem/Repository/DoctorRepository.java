@@ -8,4 +8,5 @@ import com.cg.mHealthSystem.entity.Doctor;
 
 public interface DoctorRepository  extends CrudRepository< Doctor,Integer > {
 
+
 }

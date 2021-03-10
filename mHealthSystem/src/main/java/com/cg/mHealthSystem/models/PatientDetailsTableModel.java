@@ -1,5 +1,12 @@
+
 package com.cg.mHealthSystem.models;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
+
+import com.cg.mHealthSystem.entity.Appointments;
+import com.cg.mHealthSystem.entity.PatientRecords;
 @Component
 public class PatientDetailsTableModel {
 	
@@ -16,6 +23,22 @@ public class PatientDetailsTableModel {
     public String city;
     public String state;
     public String pincode;
+    public PatientRecords patientrecords;
+    public PatientRecords getPatientrecords() {
+		return patientrecords;
+	}
+	public void setPatientrecords(PatientRecords patientrecords) {
+		this.patientrecords = patientrecords;
+	}
+	public Appointments getAppointment() {
+		return appointment;
+	}
+	public void setAppointment(Appointments appointment) {
+		this.appointment = appointment;
+	}
+	public Appointments appointment ;
+    @NotNull
+	@Size(min =12,max =12)
     public String idProof;
 	public Integer getPatientId() {
 		return patientId;
@@ -101,9 +124,11 @@ public class PatientDetailsTableModel {
 	public void setIdProof(String idProof) {
 		this.idProof = idProof;
 	}
+	
 	public PatientDetailsTableModel(Integer patientId, Integer userId, Integer recordId, String firstName,
 			String lastName, String middleName, String phoneNo, String gender, String dateOfBirth, String street,
-			String city, String state, String pincode, String idProof) {
+			String city, String state, String pincode, PatientRecords patientrecords, Appointments appointment,
+			@NotNull @Size(min = 12, max = 12) String idProof) {
 		super();
 		this.patientId = patientId;
 		this.userId = userId;
@@ -118,6 +143,8 @@ public class PatientDetailsTableModel {
 		this.city = city;
 		this.state = state;
 		this.pincode = pincode;
+		this.patientrecords = patientrecords;
+		this.appointment = appointment;
 		this.idProof = idProof;
 	}
 	public PatientDetailsTableModel() {
@@ -130,3 +157,4 @@ public class PatientDetailsTableModel {
 
 
 }
+
