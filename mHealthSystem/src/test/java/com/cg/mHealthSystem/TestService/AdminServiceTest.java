@@ -13,15 +13,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.cg.mHealthSystem.Repository.DepartmentRepository;
 import com.cg.mHealthSystem.Repository.DoctorRepository;
 import com.cg.mHealthSystem.Repository.NurseRepository;
+import com.cg.mHealthSystem.Repository.PatientDetailsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Employee;
 import com.cg.mHealthSystem.entity.Nurse;
+import com.cg.mHealthSystem.entity.PatientDetails;
 import com.cg.mHealthSystem.services.AdminService;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -35,6 +39,9 @@ public class AdminServiceTest {
 	
 	@MockBean
 	private DepartmentRepository departmentDao;
+	
+	@MockBean
+	private PatientDetailsRepository patientsDao;
 	@Autowired
 	private AdminService adminservice;
 	
@@ -90,7 +97,7 @@ public class AdminServiceTest {
 		
 	}
 	
-	
+	@Test
 	public void testDeleteDoctorById() throws Exception
 	{
 		Doctor doctor = new Doctor();
@@ -112,14 +119,12 @@ public class AdminServiceTest {
 		
 		Mockito.when(doctorDao.save(doctor)).thenReturn(doctor);
 		
-        Mockito.when(doctorDao.findById(101).get()).thenReturn(doctor);
-        doctorDao.deleteById(doctor.getDoctorId());
-        Mockito.when(doctorDao.findById(101).get()).thenReturn(doctor);
-        Assert.assertNotEquals(doctor, new Doctor());
-        Assert.assertEquals(adminservice.removeDoctorById(101), false);
+		doctorDao.save(doctor);
+		doctorDao.deleteById(doctor.getDoctorId());
+		Assert.assertEquals(doctorDao.findById(101),Optional.empty());
 		
 	}
-	
+	@Test
 	public void TestDeleteNurseById() throws Exception
 	{
 		Nurse nurse = new Nurse();
@@ -133,11 +138,9 @@ public class AdminServiceTest {
 		nurse.setUserId(203);
 Mockito.when(nurseDao.save(nurse)).thenReturn(nurse);
 		
-        Mockito.when(nurseDao.findById(101).get()).thenReturn(nurse);
-        nurseDao.deleteById(nurse.getNurseId());
-        Mockito.when(nurseDao.findById(101).get()).thenReturn(nurse);
-        Assert.assertNotEquals(nurse, new Doctor());
-        Assert.assertEquals(adminservice.removeNurseById(101), false);
+	nurseDao.save(nurse);
+	nurseDao.deleteById(nurse.getNurseId());
+	Assert.assertEquals(nurseDao.findById(101),Optional.empty());
 		
 	}
 	
@@ -150,12 +153,24 @@ Mockito.when(nurseDao.save(nurse)).thenReturn(nurse);
 		department.setDeptName("gyno");
 		department.setEmailId("gynco@capg.com");
 		department.setPhoneNo("723875");
-		Mockito.when(departmentDao.save(department)).thenReturn(department);
-        Mockito.when(departmentDao.findById(1).get()).thenReturn(department);
+		
+		departmentDao.save(department);
         departmentDao.deleteById(department.getDeptId());
-        Mockito.when(departmentDao.findById(1).get()).thenReturn(department);
-        Assert.assertNotEquals(department, new Department());
-        Assert.assertEquals(adminservice.removeDepartment(1), false);
+       Assert.assertEquals(departmentDao.findById(1),Optional.empty());
+       
+	}
+	@Test
+	public void TestDeletePatientById() throws Exception
+	{
+		 PatientDetails patient = new PatientDetails();
+	        patient.setUserId(10);
+	        patient.setFirstName("ayush");
+	        patient.setLastName("ranjan");
+	        
+	        patientsDao.save(patient);
+	        patientsDao.deleteById(patient.getPatientId());
+	       Assert.assertEquals(patientsDao.findById(10),Optional.empty());
+	        
 	}
 	
 	
