@@ -11,11 +11,11 @@ public interface PatientService {
 	Iterable<Doctor> getAllDoctors();
 	Department filterByDepartment(Department department);
 	Iterable<Nurse> getAllNurse();
-	PatientDetails bookbyId(PatientDetails patientId);
+	Appointments bookbyId(Appointments appointment);
 	Appointments viewById(Integer appointmentId);
-	PatientDetails updateProfile(Integer patientId, String gender);
-	PatientRecords getPatientById(Integer patientId);
-	PatientDetails getPatientRecordById(Integer recordId);
+	PatientDetails updateProfile(Integer patientId, String dateOfBirth);
+	PatientRecords retreivePatientRecordById(Integer patientId);
+	
 	
 	
 	
