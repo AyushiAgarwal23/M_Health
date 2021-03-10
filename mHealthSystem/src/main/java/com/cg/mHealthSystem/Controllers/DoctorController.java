@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.mHealthSystem.entity.Appointments;
+import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.PatientDetails;
 import com.cg.mHealthSystem.entity.PatientRecords;
@@ -29,9 +30,9 @@ public class DoctorController {
 		return doctorService.addDoctor(doctor);
 	}
 	 @PutMapping("/updateProfile/{deptId:.+}/patientDetails/{doctorId}")
-	 public Doctor updateProfile(@PathVariable Integer doctorId, @PathVariable Integer deptId)
+	 public Doctor updateProfile(@PathVariable Integer doctorId, @PathVariable Department department )
 	 {
-	        return doctorService.updateProfile(doctorId, deptId);
+	        return doctorService.updateProfile(doctorId, department);
 	 }
 	 @GetMapping("/viewAppointment/{appointmentId}")
 	    public Appointments viewAppointment(@PathVariable Integer appointmentId)

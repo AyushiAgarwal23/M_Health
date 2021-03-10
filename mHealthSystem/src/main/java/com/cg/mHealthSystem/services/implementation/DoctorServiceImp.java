@@ -9,6 +9,7 @@ import com.cg.mHealthSystem.Repository.AppointmentsRepository;
 import com.cg.mHealthSystem.Repository.DoctorRepository;
 import com.cg.mHealthSystem.Repository.PatientRecordsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
+import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.PatientDetails;
 import com.cg.mHealthSystem.entity.PatientRecords;
@@ -28,9 +29,9 @@ public class DoctorServiceImp implements DoctorService {
 	}
 
 	@Override
-	public Doctor updateProfile(Integer doctorId, Integer deptId) {
+	public Doctor updateProfile(Integer doctorId, Department department) {
 		Doctor doctor = doctorDao.findById(doctorId).get();
-        //doctor.setDepartment(deptId);
+        doctor.setDepartment(department);
         return doctorDao.save(doctor);
 	}
 	

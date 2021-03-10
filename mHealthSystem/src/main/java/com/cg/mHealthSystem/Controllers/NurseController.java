@@ -13,7 +13,7 @@ import com.cg.mHealthSystem.services.NurseService;
 
 @RestController
 @RequestMapping("/nurse")
-public class NurseController {
+public class NurseController{
 	@Autowired
 	private NurseService nurseservice;
 	@PostMapping("/addNurse")
