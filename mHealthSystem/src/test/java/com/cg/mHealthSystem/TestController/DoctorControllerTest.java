@@ -22,7 +22,9 @@ import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Employee;
+import com.cg.mHealthSystem.entity.PatientRecords;
 import com.cg.mHealthSystem.services.DoctorService;
+import com.cg.mHealthSystem.services.PatientService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -95,6 +97,30 @@ public class DoctorControllerTest {
 		        assertThat(jsonInput).isEqualTo(jsonOutput);
 		        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 		}
-
+	 
+/*	 @Test
+		public void testViewPatientRecord() throws Exception
+		{
+			String url = "/patient/patientRecord/{patientId}";
+			PatientRecords patientrecord = new PatientRecords();
+			
+			patientrecord.setPatientId(5588);
+			patientrecord.setRecordId(45698);
+			patientrecord.setHealthComplication("Loveria");
+			patientrecord.setPrescription("stop watching rom-com movies");
+			
+			
+			
+			String jsonInput = this.converttoJson(patientrecord);
+			
+			Mockito.when(doctorservice.patientRecord(Mockito.any())).thenReturn(patientrecord);
+			 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(url,5588).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
+		                .andReturn();
+		        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+		        String jsonOutput = mockHttpServletResponse.getContentAsString();
+		        assertThat(jsonInput).isEqualTo(jsonOutput);
+		        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+		}
+*/
 
 }
