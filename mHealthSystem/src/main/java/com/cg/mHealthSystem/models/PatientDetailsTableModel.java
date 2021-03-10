@@ -1,5 +1,8 @@
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
+
+import com.cg.mHealthSystem.entity.Appointments;
+import com.cg.mHealthSystem.entity.PatientRecords;
 @Component
 public class PatientDetailsTableModel {
 	
@@ -17,6 +20,23 @@ public class PatientDetailsTableModel {
     public String state;
     public String pincode;
     public String idProof;
+    public PatientRecords patientrecords;
+    public Appointments appointment ;
+    
+    
+
+	public PatientRecords getPatientrecords() {
+		return patientrecords;
+	}
+	public void setPatientrecords(PatientRecords patientrecords) {
+		this.patientrecords = patientrecords;
+	}
+	public Appointments getAppointment() {
+		return appointment;
+	}
+	public void setAppointment(Appointments appointment) {
+		this.appointment = appointment;
+	}
 	public Integer getPatientId() {
 		return patientId;
 	}
@@ -101,9 +121,11 @@ public class PatientDetailsTableModel {
 	public void setIdProof(String idProof) {
 		this.idProof = idProof;
 	}
+
 	public PatientDetailsTableModel(Integer patientId, Integer userId, Integer recordId, String firstName,
 			String lastName, String middleName, String phoneNo, String gender, String dateOfBirth, String street,
-			String city, String state, String pincode, String idProof) {
+			String city, String state, String pincode, String idProof, PatientRecords patientrecords,
+			Appointments appointment) {
 		super();
 		this.patientId = patientId;
 		this.userId = userId;
@@ -119,7 +141,10 @@ public class PatientDetailsTableModel {
 		this.state = state;
 		this.pincode = pincode;
 		this.idProof = idProof;
+		this.patientrecords = patientrecords;
+		this.appointment = appointment;
 	}
+	
 	public PatientDetailsTableModel() {
 		super();
 		// TODO Auto-generated constructor stub

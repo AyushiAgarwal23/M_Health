@@ -1,19 +1,22 @@
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
+
+import com.cg.mHealthSystem.entity.Roles;
 @Component
 public class UserTableModel {
 	
 	public class rolesTableModel{
-		public Integer roleId;
+		private Roles role;
 		public String userId;
 		public String firstName;
 		public String emailId;
 		public String password;
-		public Integer getRoleId() {
-			return roleId;
+		
+		public Roles getRole() {
+			return role;
 		}
-		public void setRoleId(Integer roleId) {
-			this.roleId = roleId;
+		public void setRole(Roles role) {
+			this.role = role;
 		}
 		public String getUserId() {
 			return userId;
@@ -39,9 +42,10 @@ public class UserTableModel {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		public rolesTableModel(Integer roleId, String userId, String firstName, String emailId, String password) {
+		
+		public rolesTableModel(Roles role, String userId, String firstName, String emailId, String password) {
 			super();
-			this.roleId = roleId;
+			this.role = role;
 			this.userId = userId;
 			this.firstName = firstName;
 			this.emailId = emailId;

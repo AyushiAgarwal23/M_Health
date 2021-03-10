@@ -1,14 +1,20 @@
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
 
+import com.cg.mHealthSystem.entity.Appointments;
+import com.cg.mHealthSystem.entity.Employee;
+
 @Component
 
 public class Doctor {
 	
-	private Integer doctorId;
-	private Integer empId;
-	private Integer userId;
-	private Integer deptId;
+	 private Integer doctorId;
+	 private Appointments appointments;
+	 private Department department;
+	 private Employee employee ;
+	 private Integer consultingFee;
+	 
+	 
 	
 	public Integer getDoctorId() {
 		return doctorId;
@@ -16,24 +22,45 @@ public class Doctor {
 	public void setDoctorId(Integer doctorId) {
 		this.doctorId = doctorId;
 	}
-	public Integer getEmpId() {
-		return empId;
+	public Appointments getAppointments() {
+		return appointments;
 	}
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
+	public void setAppointments(Appointments appointments) {
+		this.appointments = appointments;
 	}
-	public Integer getUserId() {
-		return userId;
+	public Department getDepartment() {
+		return department;
 	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
-	public Integer getDeptId() {
-		return deptId;
+	public Employee getEmployee() {
+		return employee;
 	}
-	public void setDeptId(Integer deptId) {
-		this.deptId = deptId;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
+	public Integer getConsultingFee() {
+		return consultingFee;
+	}
+	public void setConsultingFee(Integer consultingFee) {
+		this.consultingFee = consultingFee;
+	}
+	  
+	public Doctor(Integer doctorId, Appointments appointments, Department department, Employee employee,
+			Integer consultingFee) {
+		super();
+		this.doctorId = doctorId;
+		this.appointments = appointments;
+		this.department = department;
+		this.employee = employee;
+		this.consultingFee = consultingFee;
+	}
+	public Doctor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 	
