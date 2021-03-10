@@ -31,6 +31,7 @@ public class DepartmentRepositoryTest {
 	public void testNewDepartment() throws Exception
 	{
 		Department department = getDepartment();
+		department.setDeptId(19);
 		Department saveInDb = testEntityManager.persist(department);
 		Department getFromInDb = ddao.findById(saveInDb.getDeptId()).get();
 		assertThat(getFromInDb).isEqualTo(saveInDb);
