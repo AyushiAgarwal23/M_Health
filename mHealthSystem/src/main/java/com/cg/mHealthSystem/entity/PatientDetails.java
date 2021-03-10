@@ -1,6 +1,7 @@
 package com.cg.mHealthSystem.entity;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,8 +46,9 @@ public class PatientDetails {
 	private String idProof;
 	@OneToOne
 	public PatientRecords patientrecords;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	public Appointments appointment ;
+	
 	public Integer getPatientId() {
 		return patientId;
 	}
@@ -64,6 +66,18 @@ public class PatientDetails {
 	}
 	public void setRecordId(Integer recordId) {
 		this.recordId = recordId;
+	}
+	public PatientRecords getPatientrecords() {
+		return patientrecords;
+	}
+	public void setPatientrecords(PatientRecords patientrecords) {
+		this.patientrecords = patientrecords;
+	}
+	public Appointments getAppointment() {
+		return appointment;
+	}
+	public void setAppointment(Appointments appointment) {
+		this.appointment = appointment;
 	}
 	public String getFirstName() {
 		return firstName;

@@ -20,7 +20,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("patient")
+@RequestMapping("/patient")
 public class PatientController {
 	
 		@Autowired
@@ -42,8 +42,8 @@ public class PatientController {
 		 
 //book by appointments
 		 @PostMapping("/bookById")
-		 	public PatientDetails bookById(@RequestBody PatientDetails patientId) {
-			 	return patientService.bookbyId(patientId);
+		 	public Appointments bookById(@RequestBody Appointments appointment) {
+			 	return patientService.bookbyId(appointment);
 		 }
 
 
@@ -59,4 +59,10 @@ public class PatientController {
 		    public PatientDetails updateProfile(@PathVariable Integer patientId, @PathVariable String gender){
 		        return patientService.updateProfile(patientId, gender);
 		    }
+//Get Patient details
+			 @GetMapping("/retreivePatientRecordById/{recordId}")
+			    public Appointments retreivePatientRecordById(@PathVariable Integer recordId){
+			        return patientService.viewById(recordId);
+			    }
+		    
 }
