@@ -1,12 +1,26 @@
+
 package com.cg.mHealthSystem.models;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Employee {
 	private Integer empId;
+	public Integer getEmpId() {
+		return empId;
+	}
+	public void setEmpId(Integer empId) {
+		this.empId = empId;
+	}
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
 	private String middleName;
+	@NotNull
+	@Size(min =10,max =10)
 	private String phoneNo;
 	private String gender;
 	private String dob;
@@ -14,14 +28,10 @@ public class Employee {
 	private String city;
 	private String state;
 	private String pinCode;
-	private String idProof;
 	
-	public Integer getEmpId() {
-		return empId;
-	}
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
-	}
+	@NotNull
+	@Size(min =12,max =12)
+	private String idProof;
 	
 	public String getFirstName() {
 		return firstName;
@@ -88,26 +98,6 @@ public class Employee {
 	}
 	public void setIdProof(String idProof) {
 		this.idProof = idProof;
-	}
-	public Employee(Integer empId, String firstName, String lastName, String middleName, String phoneNo, String gender,
-			String dob, String street, String city, String state, String pinCode, String idProof) {
-		super();
-		this.empId = empId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.middleName = middleName;
-		this.phoneNo = phoneNo;
-		this.gender = gender;
-		this.dob = dob;
-		this.street = street;
-		this.city = city;
-		this.state = state;
-		this.pinCode = pinCode;
-		this.idProof = idProof;
-	}
-	public Employee() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

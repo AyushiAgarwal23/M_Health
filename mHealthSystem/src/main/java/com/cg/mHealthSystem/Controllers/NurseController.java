@@ -1,10 +1,10 @@
 package com.cg.mHealthSystem.Controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +15,9 @@ import com.cg.mHealthSystem.services.NurseService;
 
 @RestController
 @RequestMapping("/nurse")
-public class NurseController {
+public class NurseController{
 	@Autowired
 	private NurseService nurseservice;
-	
 	private static final Logger logger=LoggerFactory.getLogger(PatientController.class);
 	@PostMapping("/addNurse")
 	public Nurse addNurse(@RequestBody Nurse nurse)

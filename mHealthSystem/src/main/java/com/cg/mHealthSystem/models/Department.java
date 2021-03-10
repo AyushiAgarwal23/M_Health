@@ -1,14 +1,16 @@
+
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
+
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Component
 
 public class Department {
-	
 	private Integer deptId;
-	private String deptName;
-	private String phoneNo;
-	private String emailId;
 	
 	public Integer getDeptId() {
 		return deptId;
@@ -16,6 +18,14 @@ public class Department {
 	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
+	private String deptName;
+	@NotNull
+	@Size(min =10,max =10)
+	private String phoneNo;
+	@NotNull
+	@Pattern(regexp="\"^[A-Za-z_][a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+$\"")
+	private String emailId;
+	
 	public String getDeptName() {
 		return deptName;
 	}
@@ -34,16 +44,8 @@ public class Department {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public Department(Integer deptId, String deptName, String phoneNo, String emailId) {
-		super();
-		this.deptId = deptId;
-		this.deptName = deptName;
-		this.phoneNo = phoneNo;
-		this.emailId = emailId;
-	}
-	public Department() {
-		super();
-	}
+	
+	
 	
 	
 

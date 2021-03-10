@@ -1,22 +1,27 @@
-package com.cg.mHealthSystem.models;
-import org.springframework.stereotype.Component;
+ package com.cg.mHealthSystem.models;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
-import com.cg.mHealthSystem.entity.Roles;
+import org.springframework.stereotype.Component;
 @Component
 public class UserTableModel {
 	
 	public class rolesTableModel{
-		private Roles role;
+		public Integer roleId;
 		public String userId;
+		@NotNull
 		public String firstName;
+		@NotNull
+		@Pattern(regexp="\"^[a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+$\"",message="Enter valid email")
 		public String emailId;
+		@NotNull
+		@Pattern(regexp="^[a-zA-Z0-9]{8}",message="length must be 8")  
 		public String password;
-		
-		public Roles getRole() {
-			return role;
+		public Integer getRoleId() {
+			return roleId;
 		}
-		public void setRole(Roles role) {
-			this.role = role;
+		public void setRoleId(Integer roleId) {
+			this.roleId = roleId;
 		}
 		public String getUserId() {
 			return userId;
@@ -42,10 +47,9 @@ public class UserTableModel {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		
-		public rolesTableModel(Roles role, String userId, String firstName, String emailId, String password) {
+		public rolesTableModel(Integer roleId, String userId, String firstName, String emailId, String password) {
 			super();
-			this.role = role;
+			this.roleId = roleId;
 			this.userId = userId;
 			this.firstName = firstName;
 			this.emailId = emailId;
