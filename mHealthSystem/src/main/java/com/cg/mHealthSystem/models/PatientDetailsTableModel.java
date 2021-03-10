@@ -1,4 +1,7 @@
 package com.cg.mHealthSystem.models;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
 @Component
 public class PatientDetailsTableModel {
@@ -16,6 +19,8 @@ public class PatientDetailsTableModel {
     public String city;
     public String state;
     public String pincode;
+    @NotNull
+	@Size(min =12,max =12)
     public String idProof;
 	public Integer getPatientId() {
 		return patientId;

@@ -1,11 +1,18 @@
 package com.cg.mHealthSystem.models;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Employee {
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
 	private String middleName;
+	@NotNull
+	@Size(min =10,max =10)
 	private String phoneNo;
 	private String gender;
 	private String dob;
@@ -13,6 +20,9 @@ public class Employee {
 	private String city;
 	private String state;
 	private String pinCode;
+	
+	@NotNull
+	@Size(min =12,max =12)
 	private String idProof;
 	
 	public String getFirstName() {

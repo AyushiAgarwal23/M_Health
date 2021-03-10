@@ -12,15 +12,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class AdminSwagger {
+public class MHealthSwagger {
 
 	@Bean
 	public Docket postsApi() {
-		return new Docket(DocumentationType.SWAGGER_2).apiInfo(metadata()).select().paths(regex("/*")).build();
+		return new Docket(DocumentationType.SWAGGER_2).apiInfo(metadata()).select().paths(regex("/.*")).build();
 	}
 	@SuppressWarnings("deprecation")
 	private ApiInfo metadata() {
-		return new ApiInfoBuilder().title("Admin Control").description("API reference guide for developers").termsOfServiceUrl("https://www.ayush.com/").contact("Ranjan, Ayush").version("1.0").build();	
+		return new ApiInfoBuilder().title("M-Health System").description("API reference guide for developers").termsOfServiceUrl("https://www.ayush.com/").contact("Ranjan, Ayush").version("1.0").build();	
 	}
 
 
