@@ -26,12 +26,16 @@ public class NurseController{
 	@Autowired
 	private NurseService nurseservice;
 	private static final Logger logger=LoggerFactory.getLogger(PatientController.class);
+	
+	//Adding new nurse 
 	@PostMapping("/addNurse")
 	public Nurse addNurse(@RequestBody Nurse nurse)
 	{
 		logger.info("In Nurse controller, add Nurse method");
 		return nurseservice.addNurse(nurse);
 	}
+	
+	//Updating the Nurse Fees
 	@PutMapping("/updateNurse/{nurseFee:.+}/Nurse/{nurseId}")
     public Nurse updateNurse(@PathVariable Integer nurseFee,@PathVariable Integer nurseId)
 	{

@@ -42,7 +42,7 @@ public class DoctorController {
 	@Autowired
 	private PatientRecordsRepository patrecDao;
 	
-	
+//Adding new doctor	
 	
 	private static final Logger logger=LoggerFactory.getLogger(PatientController.class);
 	
@@ -53,6 +53,7 @@ public class DoctorController {
 		return doctorService.addDoctor(doctor);
 	}
 	
+// Updating Doctor Profile using doctorId
 	
 	 @PutMapping("/updateProfile/{deptId:.+}/patientDetails/{doctorId}")
 	 public Doctor updateProfile(@PathVariable Integer doctorId, @PathVariable Department department )
@@ -71,7 +72,7 @@ public class DoctorController {
 	 
 	 
 	 
-	 
+// View Appointment details using appointmentId	 
 	 @GetMapping("/viewAppointment/{appointmentId}")
 	    public Appointments viewAppointment(@PathVariable Integer appointmentId)
 	    {
@@ -91,7 +92,7 @@ public class DoctorController {
 	 
 	 
 	 
-	 
+// Seeing patient record using patient Id	 
 	 @GetMapping("/patientRecord/{patientId}")
 	    public PatientRecords patientRecord(@PathVariable Integer patientId)
 	    {
