@@ -1,5 +1,11 @@
 package com.cg.mHealthSystem.Controllers;
-
+/**
+ * 
+ * @author ayushranjan
+ * 
+ * This is the Admin controller class 
+ * 
+ */
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +46,7 @@ public class AdminController {
 	
 	@Autowired
 	private DepartmentRepository departmentDao ;
-
+	@Autowired
 	private PatientDetailsRepository patientDao;
 
 	

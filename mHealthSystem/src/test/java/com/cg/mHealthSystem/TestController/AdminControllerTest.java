@@ -2,6 +2,7 @@ package com.cg.mHealthSystem.TestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
+
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -18,6 +19,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 
 import com.cg.mHealthSystem.Controllers.AdminController;
+import com.cg.mHealthSystem.Exception.ResourceNotFoundException;
+import com.cg.mHealthSystem.Repository.DepartmentRepository;
+import com.cg.mHealthSystem.Repository.DoctorRepository;
+import com.cg.mHealthSystem.Repository.NurseRepository;
+import com.cg.mHealthSystem.Repository.PatientDetailsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
@@ -28,11 +34,25 @@ import com.cg.mHealthSystem.services.AdminService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = AdminController.class)
 public class AdminControllerTest {
 	@Autowired
     private MockMvc mockMvc;
+	
+	@MockBean
+	private DoctorRepository doctorDao;
+	
+	@MockBean
+	private NurseRepository nurseDao;
+	
+	@MockBean
+	private DepartmentRepository departmentDao;
+	
+	@MockBean
+	private PatientDetailsRepository patientsDao;
 	
 	@MockBean
 	private AdminService adminservice ;
@@ -118,7 +138,7 @@ public class AdminControllerTest {
         		APPLICATION_JSON)).andReturn();
         MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 
-        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+        Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
 
     }
     
@@ -144,7 +164,7 @@ public class AdminControllerTest {
         		APPLICATION_JSON)).andReturn();
         MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 
-        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+        Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
 
     }
     
@@ -171,22 +191,26 @@ public class AdminControllerTest {
 	
     
     @Test
-    public void testDeleteDepartment() throws Exception{
+    public void testDeleteDepartment() throws Exception  {
         String URI = "/admin/deleteDepartment/{deptId}";
-        Department department = new Department();
+        Department  department= new Department();
 		department.setDeptId(1);
 		department.setDeptName("gyno");
 		department.setEmailId("gynco@capg.com");
 		department.setPhoneNo("723875");
 		String jsonInput = this.converttoJson(department);
-        
-        Mockito.when(adminservice.removeDepartment(Mockito.any())).thenReturn(true);
-        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI, 1).accept(MediaType.
-        		APPLICATION_JSON)).andReturn();
-        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
-
-        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
-
+		adminservice.addDepartment(department);
+		System.out.println(adminservice.findDepartmentById(1));
+		Mockito.when(adminservice.findDepartmentById(Mockito.any())).thenReturn(department);
+		Mockito.when(adminservice.removeDepartment(Mockito.any())).thenReturn(true);
+		 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.delete(URI, 1).accept(MediaType.
+	        		APPLICATION_JSON)).andReturn();
+		 MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+		 System.out.println(mockHttpServletResponse.getStatus());
+		 System.out.println(HttpStatus.valueOf("NOT_FOUND").value());
+		Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
+		
+		
     }
 	@Test
     public void testDeletePatient() throws Exception{
@@ -202,7 +226,7 @@ public class AdminControllerTest {
         		APPLICATION_JSON)).andReturn();
         MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 
-        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
+        Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
 
     }
     

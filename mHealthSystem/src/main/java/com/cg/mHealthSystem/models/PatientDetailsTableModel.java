@@ -1,6 +1,7 @@
 
 package com.cg.mHealthSystem.models;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
@@ -16,12 +17,15 @@ public class PatientDetailsTableModel {
 	public String firstName;
 	public String lastName;
     public String middleName;
+    @Size(min =10,max =10)
     public String phoneNo;
     public String gender;
+    @Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$",message= "Enter valid date of birth in dd/mm/yyyy format")
     public String dateOfBirth;
     public String street;
     public String city;
     public String state;
+    @Size(min =6,max =6)
     public String pincode;
     public PatientRecords patientrecords;
     public PatientRecords getPatientrecords() {

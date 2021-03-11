@@ -1,6 +1,7 @@
 
 package com.cg.mHealthSystem.models;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
@@ -23,10 +24,12 @@ public class Employee {
 	@Size(min =10,max =10)
 	private String phoneNo;
 	private String gender;
+	@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$",message= "Enter valid date of birth in dd/mm/yyyy format")
 	private String dob;
 	private String street;
 	private String city;
 	private String state;
+	@Pattern(regexp="^[1-9][0-9]{5}$",message="Enter correct 6 digit pincode")
 	private String pinCode;
 	
 	@NotNull
