@@ -4,26 +4,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="Records")
 public class PatientRecords {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer recordId;
-	private Integer patientId;
-	private String prescription ;
-	private String healthComplication ;
-	public Integer getRecordId() {
-		return recordId;
-	}
-	public void setRecordId(Integer recordId) {
-		this.recordId = recordId;
-	}
+	public Integer patientId;	
 	public Integer getPatientId() {
 		return patientId;
 	}
 	public void setPatientId(Integer patientId) {
 		this.patientId = patientId;
+	}
+	private String prescription ;
+	private String healthComplication ;
+	
+	public Integer getRecordId() {
+		return recordId;
+	}
+	public void setRecordId(Integer recordId) {
+		this.recordId = recordId;
 	}
 	
 	public String getPrescription() {
@@ -38,12 +42,11 @@ public class PatientRecords {
 	public void setHealthComplication(String healthComplication) {
 		this.healthComplication = healthComplication;
 	}
-	public PatientRecords(Integer recordId, Integer patientId, String prescription,
-			String healthComplication) {
+	
+	public PatientRecords(Integer recordId, Integer patientId, String prescription, String healthComplication) {
 		super();
 		this.recordId = recordId;
 		this.patientId = patientId;
-		
 		this.prescription = prescription;
 		this.healthComplication = healthComplication;
 	}
@@ -51,6 +54,5 @@ public class PatientRecords {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }

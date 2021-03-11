@@ -3,6 +3,7 @@ package com.cg.mHealthSystem.services;
 import java.util.Optional;
 
 import com.cg.mHealthSystem.entity.Department;
+
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Nurse;
 import com.cg.mHealthSystem.entity.PatientDetails;
@@ -10,7 +11,7 @@ import com.cg.mHealthSystem.entity.PatientDetails;
 public interface AdminService {
 	
 	
-	Doctor addDoctor(Doctor  doctor);
+	Doctor addDoctor(Doctor doctor);
 	Nurse addNurse(Nurse nurse );
 	boolean removeDoctorById(Integer doctorId);
 	boolean removeNurseById(Integer nurseId);

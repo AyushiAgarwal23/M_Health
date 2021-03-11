@@ -1,19 +1,16 @@
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
+
+import com.cg.mHealthSystem.entity.PatientDetails;
 @Component
 
 public class PatientRecordsTableModel {
-	public Integer recordId;
-	public Integer patientId;
 	
+	public Integer recordId;	
+	public Integer patientId;	
 	public String healthComplication;
 	public String prescription;
-	public Integer getRecordId() {
-		return recordId;
-	}
-	public void setRecordId(Integer recordId) {
-		this.recordId = recordId;
-	}
+	
 	public Integer getPatientId() {
 		return patientId;
 	}
@@ -21,6 +18,12 @@ public class PatientRecordsTableModel {
 		this.patientId = patientId;
 	}
 	
+	public Integer getRecordId() {
+		return recordId;
+	}
+	public void setRecordId(Integer recordId) {
+		this.recordId = recordId;
+	}
 	public String getHealthComplication() {
 		return healthComplication;
 	}
@@ -33,12 +36,12 @@ public class PatientRecordsTableModel {
 	public void setPrescription(String prescription) {
 		this.prescription = prescription;
 	}
-	public PatientRecordsTableModel(Integer recordId, Integer patientId, Integer appointmentId,
-			String healthComplication, String prescription) {
+	
+	public PatientRecordsTableModel(Integer recordId, Integer patientId, String healthComplication,
+			String prescription) {
 		super();
 		this.recordId = recordId;
 		this.patientId = patientId;
-		//this.appointmentId = appointmentId;
 		this.healthComplication = healthComplication;
 		this.prescription = prescription;
 	}
@@ -47,8 +50,6 @@ public class PatientRecordsTableModel {
 		// TODO Auto-generated constructor stub
 	}
 	
+	}
 	
 	
-	
-	
-}
