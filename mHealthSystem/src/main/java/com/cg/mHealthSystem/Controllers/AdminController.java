@@ -11,7 +11,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.Optional;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +36,7 @@ import com.cg.mHealthSystem.services.AdminService;
 
 @RestController
 @RequestMapping("/admin")
+@Validated
 public class AdminController {
 	@Autowired
 	private AdminService adminservice ;
@@ -51,20 +56,20 @@ public class AdminController {
 
 	
 	@PostMapping("/addDoctor")
-	public Doctor addDoctor(@RequestBody Doctor doctor )
+	public Doctor addDoctor(@Valid @RequestBody Doctor doctor )
 	{
 		logger.info("In admin controller, add doctors method");
 		return adminservice.addDoctor(doctor);
 	}
 	
 	@PostMapping("/addNurse")
-	public Nurse addNurse(@RequestBody Nurse nurse )
+	public Nurse addNurse(@Valid @RequestBody Nurse nurse )
 	{
 		logger.info("In admin controller, add Nurse method");
 		return adminservice.addNurse(nurse);
 	}
 	@DeleteMapping("/deleteNurse/{nurseId}")
-	public boolean deleteNurse(@PathVariable Integer nurseId)
+	public boolean deleteNurse(@PathVariable @Pattern(regexp="[0-9]+")Integer nurseId)
 	{
 
 		logger.info("In admin controller, delete nurse method");
@@ -99,7 +104,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/addDepartment")
-	public Department addDepartment(@RequestBody Department department)
+	public Department addDepartment(@Valid @RequestBody Department department)
 	{
 		logger.info("In admin controller, add department method");
 		return adminservice.addDepartment(department);

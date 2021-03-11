@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.mHealthSystem.Controllers.PatientController;
+import com.cg.mHealthSystem.Exception.ResourceNotFoundException;
 import com.cg.mHealthSystem.Repository.DepartmentRepository;
 import com.cg.mHealthSystem.Repository.DoctorRepository;
 import com.cg.mHealthSystem.Repository.NurseRepository;
@@ -82,6 +83,7 @@ public class AdminServiceImp implements AdminService {
 	@Override
 	public boolean removePatient(Integer patientId) {
 
+	
 		patientDao.deleteById(patientId);
 		Optional<PatientDetails> patientDetails = patientDao.findById(patientId);
 		logger.info("In Admin Service, Remove patient method");
@@ -91,7 +93,11 @@ public class AdminServiceImp implements AdminService {
 	@Override
 	public Department findDepartmentById(Integer deptId) {
 		
-		return departmentDao.findById(deptId).get();
+		if(departmentDao.findById(deptId).isPresent())
+		{
+			return departmentDao.findById(deptId).get();
+		}
+		throw new ResourceNotFoundException();
 		
 	}
 

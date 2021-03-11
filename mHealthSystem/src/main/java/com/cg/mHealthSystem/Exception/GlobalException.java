@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalException extends Exception {
+
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public String handleResourceNotFound(ResourceNotFoundException e) {
