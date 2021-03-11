@@ -18,7 +18,7 @@ public class Department {
 	@NotNull
 	@Size(min =10,max =10)
 	private String phoneNo;
-	@Pattern(regexp="\"^[A-Za-z_][a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+$\"")
+	@Pattern(regexp="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
 	private String emailId;
 	public Integer getDeptId() {
 		return deptId;
