@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -44,7 +45,8 @@ public class PatientDetails {
 	private String pincode;
 	@Column
 	private String idProof;
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="rId")
 	public PatientRecords patientrecords;
 	@OneToOne(cascade=CascadeType.ALL)
 	public Appointments appointment ;

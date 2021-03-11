@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.cg.mHealthSystem.Controllers.AdminController;
 import com.cg.mHealthSystem.Controllers.PatientController;
+import com.cg.mHealthSystem.Exception.ResourceNotFoundException;
 import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
@@ -44,9 +45,10 @@ public class PatientControllerTest {
 	@MockBean
 	private PatientService patientservice ;
 	
-//Get all doctors	
-	 @Test
-	    public void testGetAllDoctors() throws Exception{
+//* all doctors*/	
+	// @Test(expected = ResourceNotFoundException.class)
+	@Test  
+	public void testGetAllDoctors() throws Exception{
 		 
 	        String url = "/patient/getAllDoctors";
 	        Doctor doctor1 = new Doctor();
@@ -85,7 +87,7 @@ public class PatientControllerTest {
 			department2.setDeptName("zzz");
 			department2.setEmailId("ayushi@gmail.com");
 			department2.setPhoneNo("11111");
-			doctor2.setDepartment(department);
+			doctor2.setDepartment(department2);
 
 			List<Doctor> doctorList = new ArrayList<>();
 			doctorList.add(doctor1);
@@ -101,8 +103,8 @@ public class PatientControllerTest {
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 		}
 	 
-//Get all nurses	
-		 @Test
+/*Get all nurses*/	
+	/*	 @Test
 		    public void testGetAllNurse() throws Exception{
 		        String URI = "/patient/getAllNurse";
 		        Nurse nurse1 = new Nurse();
@@ -137,17 +139,16 @@ public class PatientControllerTest {
 		    }
 
 		 
-//Update
+/*Update*/
 		 @Test
 		    public void testUpdateProfile() throws Exception{
 
-		        String URI = "/patient/updateProfile/{dateOfBirth.+}/patientDetails/{patientId}";
+		        String URI = "/patient/updateProfile/patientDetails/{patientId}";
 		        PatientDetails patientDetails = new PatientDetails();
 		        
 		        patientDetails.setPatientId(100);
 		        PatientRecords records=new PatientRecords();
 		        records.setRecordId(200);
-		        records.setPatientId(300);
 		        records.setPrescription("Hello");
 		        records.setHealthComplication("Serious Problem");
 		        patientDetails.setPatientrecords(records);
@@ -160,8 +161,8 @@ public class PatientControllerTest {
 		      
 		        String jsonInput = this.converttoJson(patientDetails);
 
-		        Mockito.when(patientservice.updateProfile(Mockito.any(),Mockito.anyString())).thenReturn(patientDetails);
-		        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.put(URI, "\"1.1.1990\"",100).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
+		        Mockito.when(patientservice.updateProfile(Mockito.any(PatientDetails.class))).thenReturn(patientDetails);
+		        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.put(URI, 100).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
 		                .andReturn();
 		        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 		        String jsonOutput = mockHttpServletResponse.getContentAsString();
@@ -169,11 +170,11 @@ public class PatientControllerTest {
 		        assertThat(jsonInput).isEqualTo(jsonOutput);
 		    }
 	
- //view by id
+ /*view by id*/
 		 @Test
 			public void testViewById() throws Exception
 			{
-				String url = "/patient/ViewById/{appointmentId}";
+				String url = "/patient/ViewById/{pateintId}";
 				Appointments appointment = new Appointments();
 				appointment.setAppointmentId(100);
 				appointment.setDoctorId(200);
@@ -196,7 +197,7 @@ public class PatientControllerTest {
 			}
 	
 
-// Book by ID 
+/* Book by ID*/ 
 			@Test
 				public void testBookById() throws Exception
 					{
@@ -213,7 +214,7 @@ public class PatientControllerTest {
 						
 						String jsonInput = this.converttoJson(appointment);
 						
-						Mockito.when(patientservice.bookbyId(Mockito.any(Appointments.class))).thenReturn(appointment);
+						Mockito.when(patientservice.bookbyId(Mockito.any(), appointment)).thenReturn(appointment);
 						 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(url).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
 					                .andReturn();
 					        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();

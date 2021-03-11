@@ -57,8 +57,8 @@ public class PatientServiceTest {
 	private PatientService patientservice;
 
 	
-//Book By ID
-	@Test
+/*Book By ID*/
+/*	@Test
 	public void TestBookById()
 	{
 		Appointments appointment = new Appointments();
@@ -73,9 +73,9 @@ public class PatientServiceTest {
 		 Mockito.when(appointmentDao.save(appointment)).thenReturn(appointment);
 	        assertThat(patientservice.bookbyId(appointment)).isEqualTo(appointment);
 		
-	}
+	}*/
 
-//Update Profile
+/*Update Profile!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	
 	 @Test
 	    public void testUpdateProfile() throws Exception{
@@ -95,20 +95,27 @@ public class PatientServiceTest {
 	        patientDetails.setFirstName("Ayushi");
 	   //     patientDetails.setDateOfBirth("1.1.2020");
 	       
-
-	        detailsDao.save(patientDetails);
+	      //  Mockito.when(detailsDao.save(patientDetails)).thenReturn(patientDetails);
+	     //   Mockito.when(detailsDao.findById(100).get()).thenReturn(patientDetails);
+	        //ticket2.setEmail("maran100@msn.com");
+	        
+	        //System.out.println(patientDetails.getEmail());
+	     //   assertThat(patientservice.updateEmailById(100, "maran100@msn.com")).isEqualTo(ticket2);
+	    //    detailsDao.save(patientDetails);
 	        System.out.println(patientDetails);
 	    //    System.out.println(detailsDao.findById(100).get());
 	    //    Mockito.when(detailsDao.findById(100).get()).thenReturn(patientDetails);
-	        patientDetails.setDateOfBirth("1.1.2020");
-	      //  Mockito.when(detailsDao.save(patientDetails)).thenReturn(patientDetails);
-	        System.out.println(patientDetails.getDateOfBirth());
-	        Assert.assertTrue(patientDetails.getDateOfBirth().equals("1.1.2020"));
+	      //  patientDetails.setDateOfBirth();
+	       Mockito.when(detailsDao.save(patientDetails)).thenReturn(patientDetails);
+	    //    System.out.println(patientDetails.getDateOfBirth());
+	       assertThat(patientservice.updateProfile(patientDetails)).isEqualTo(patientDetails);
+	       
+	     //  Assert.assertTrue(patientservice.updateProfile(patientDetails).isEqualTo(patientDetails);
 	    }
-
+*/
 	
 	
-//get all doctors
+/*get all doctors*/
 	@Test
     public void testGetAllDoctors() throws Exception{
 		
@@ -159,7 +166,7 @@ public class PatientServiceTest {
         assertThat(patientservice.getAllDoctors()).isEqualTo(doctorList);
     }
 
-//get all nurses
+/*get all nurses*/
 	@Test
 	public void testGetAllNurses() throws Exception {
 		Nurse nurse1 = new Nurse();

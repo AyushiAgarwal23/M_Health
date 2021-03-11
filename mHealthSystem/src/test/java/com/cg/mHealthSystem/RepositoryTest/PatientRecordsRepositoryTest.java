@@ -57,7 +57,7 @@ public class PatientRecordsRepositoryTest {
 	{
 		PatientRecords patientRecords1 = new PatientRecords();
 		patientRecords1.setRecordId(123);
-		patientRecords1.setPatientId(321);
+	    patientRecords1.setPatientId(321);
 		patientRecords1.setHealthComplication("Headache");
 		patientRecords1.setPrescription("pcm");
 		
@@ -87,7 +87,7 @@ public class PatientRecordsRepositoryTest {
 		
 		PatientRecords patientRecords2 = new PatientRecords();
 		patientRecords2.setRecordId(153);
-		patientRecords2.setPatientId(351);
+	    patientRecords2.setPatientId(351);
 		patientRecords2.setHealthComplication("eye pain");
 		patientRecords2.setPrescription("specs");
 
