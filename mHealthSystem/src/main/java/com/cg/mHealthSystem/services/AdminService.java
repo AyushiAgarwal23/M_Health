@@ -1,5 +1,7 @@
 package com.cg.mHealthSystem.services;
 
+import java.util.Optional;
+
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Nurse;
@@ -15,6 +17,7 @@ public interface AdminService {
 	Department addDepartment(Department department);
 	boolean removeDepartment(Integer deptId);
 	boolean removePatient(Integer patientId);
+	Department findDepartmentById(Integer deptId);
 	
 
 }

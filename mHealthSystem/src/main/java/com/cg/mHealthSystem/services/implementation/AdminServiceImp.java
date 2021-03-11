@@ -88,4 +88,11 @@ public class AdminServiceImp implements AdminService {
 		return !(patientDetails.isPresent());
 	}
 
+	@Override
+	public Department findDepartmentById(Integer deptId) {
+		
+		return departmentDao.findById(deptId).get();
+		
+	}
+
 }
