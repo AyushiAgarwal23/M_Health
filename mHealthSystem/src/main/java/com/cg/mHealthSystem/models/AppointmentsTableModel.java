@@ -1,5 +1,7 @@
 package com.cg.mHealthSystem.models;
 
+import javax.validation.constraints.Pattern;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,7 +9,9 @@ public class AppointmentsTableModel {
 	public Integer doctorId;
 	public Integer patientId;
 	public Integer appointmentId;
+    @Pattern(regexp="^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",message="Enter date in hh:mm format")
 	public String startTime;
+    @Pattern(regexp="^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",message="Enter date in hh:mm format")
 	public String endTime;
 	public String createdAt;
 	public String deletedAt;
