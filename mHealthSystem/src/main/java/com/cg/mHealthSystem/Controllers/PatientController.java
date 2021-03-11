@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.mHealthSystem.Exception.ResourceNotFoundException;
 import com.cg.mHealthSystem.Logger.logger;
-import com.cg.mHealthSystem.Repository.AppointmentsRepository;
 import com.cg.mHealthSystem.Repository.DoctorRepository;
 import com.cg.mHealthSystem.Repository.PatientDetailsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
@@ -58,12 +57,10 @@ private static final Logger logger=LoggerFactory.getLogger(PatientController.cla
 /*get all Nurses*/
 		 @GetMapping("/getAllNurse")
 		    public List<Nurse> getAllNurse(){
-			 System.out.println("Patient Controller");
 			 logger.info("In Patient controller, get all nurses method");
 			 Iterable<Nurse> n1= patientService.getAllNurse();
 			 List<Nurse> result = StreamSupport.stream(n1.spliterator(), false).collect(Collectors.toList());
 			 if(result.isEmpty()) {
-				 System.out.println("Inside");
 				 throw new ResourceNotFoundException("No data Found");
 			 }
 			
@@ -94,7 +91,6 @@ private static final Logger logger=LoggerFactory.getLogger(PatientController.cla
 				 doctor1.setAppointments(appointment);
 				 
 				 return patientService.bookbyId(patientId, appointment);
-				 //throw new ResourceNotFoundException("No appointments for the doctor");
 			 }
 			 if(appointment1.getStartTime().equalsIgnoreCase(appointment.getStartTime())) {
 				 throw new ResourceNotFoundException("Time mismatch");
@@ -109,19 +105,10 @@ private static final Logger logger=LoggerFactory.getLogger(PatientController.cla
 		 @GetMapping("/ViewById/{patientId}")
 		    public Appointments ViewById(@PathVariable Integer patientId){
 			 logger.info("In Patient controller, ViewById method");
-			 if(patientDao.findById(patientId).isEmpty()) {
-				 throw new ResourceNotFoundException("Not Found");
+			 if(patientDao.findById(patientId).isPresent()) {
+				 throw new ResourceNotFoundException("Appointment Not Found");
 			 }
-			 
-			 
-			 
 			 return patientService.viewById(patientId);
-			 //Appointments appointment=new Appointments();
-		/*	  Optional <PatientDetails> details=patientDao.findById(patientId);
-			  PatientDetails patient =details.get();
-			  Appointments appointment= patient.getAppointment();
-			  
-			  return patientService.viewById(ap;*/
 		    }
 		 
 /*Update*/
@@ -130,8 +117,8 @@ private static final Logger logger=LoggerFactory.getLogger(PatientController.cla
 		    public PatientDetails updateProfile(@PathVariable Integer patientId, @RequestBody PatientDetails patientDetails){
 		    	logger.info("In Patient controller, get all updateProfile method");
 		    	patientDetails.setPatientId(patientId);
-		    	 if(patientDao.findById(patientId).isEmpty()) {
-					 throw new ResourceNotFoundException("Not Found");
+		    	 if(patientDao.findById(patientId).isPresent()) {
+					 throw new ResourceNotFoundException("Patient Not Found");
 		    	 }
 		    	return patientService.updateProfile(patientDetails);
 		    	
@@ -140,15 +127,12 @@ private static final Logger logger=LoggerFactory.getLogger(PatientController.cla
 		    
 		    
 /*Get Patient details*/
-		    //recordId replace patient ID
-		    //if(
-		    
-		    
+		  
 		   @GetMapping("/retreivePatientRecordById/{patientId}")
 			    public PatientRecords retreivePatientRecordById(@PathVariable Integer patientId){
 				 logger.info("In Patient controller, retreivePatientRecordById method");
-				 if(patientDao.findById(patientId).isEmpty()) {
-					 throw new ResourceNotFoundException("Not Found");
+				 if(patientDao.findById(patientId).isPresent()) {
+					 throw new ResourceNotFoundException("Patient not Found");
 		    	 }
 			        return patientService.retreivePatientRecordById(patientId);
 			        	

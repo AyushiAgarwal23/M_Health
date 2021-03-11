@@ -20,6 +20,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import com.cg.mHealthSystem.Controllers.AdminController;
 import com.cg.mHealthSystem.Controllers.PatientController;
 import com.cg.mHealthSystem.Exception.ResourceNotFoundException;
+import com.cg.mHealthSystem.Repository.DepartmentRepository;
+import com.cg.mHealthSystem.Repository.DoctorRepository;
+import com.cg.mHealthSystem.Repository.NurseRepository;
+import com.cg.mHealthSystem.Repository.PatientDetailsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
@@ -41,12 +45,21 @@ import java.util.List;
 public class PatientControllerTest {
 	@Autowired
     private MockMvc mockMvc;
+	@MockBean
+	private DoctorRepository doctorDao;
 	
+	@MockBean
+	private NurseRepository nurseDao;
+	
+	@MockBean
+	private DepartmentRepository departmentDao;
+	
+	@MockBean
+	private PatientDetailsRepository patientDao;
 	@MockBean
 	private PatientService patientservice ;
 	
 //* all doctors*/	
-	// @Test(expected = ResourceNotFoundException.class)
 	@Test  
 	public void testGetAllDoctors() throws Exception{
 		 
@@ -68,10 +81,8 @@ public class PatientControllerTest {
 			department.setEmailId("ayush@gmail.com");
 			department.setPhoneNo("221151");
 			doctor1.setDepartment(department);
-	        
-	        
-	      
-	   Doctor doctor2 = new Doctor();
+   	      
+	        Doctor doctor2 = new Doctor();
 	        doctor2.setDoctorId(102);
 	        Employee employee2=new Employee();
 	        employee2.setEmpId(200);
@@ -93,18 +104,19 @@ public class PatientControllerTest {
 			doctorList.add(doctor1);
 			doctorList.add(doctor2);
 
-	        String jsonInput = this.converttoJson(doctorList);
+			 String jsonInput = this.converttoJson(doctorList);
 
-	        Mockito.when(patientservice.getAllDoctors()).thenReturn(doctorList);
-	        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON)).andReturn();
-	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
-	        String jsonOutput = mockHttpServletResponse.getContentAsString();
+		        Mockito.when(patientservice.getAllDoctors()).thenReturn(doctorList);
+		        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(url).accept(MediaType.APPLICATION_JSON)).andReturn();
+		        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
+		        String jsonOutput = mockHttpServletResponse.getContentAsString();
 
-	        assertThat(jsonInput).isEqualTo(jsonOutput);
+		        assertThat(jsonInput).isEqualTo(jsonOutput);
+
 		}
 	 
 /*Get all nurses*/	
-	/*	 @Test
+		 @Test
 		    public void testGetAllNurse() throws Exception{
 		        String URI = "/patient/getAllNurse";
 		        Nurse nurse1 = new Nurse();
@@ -126,8 +138,7 @@ public class PatientControllerTest {
 		        List<Nurse> NurseList = new ArrayList<>();
 		        NurseList.add(nurse1);
 		        NurseList.add(nurse2);
-		     
-
+		   
 		        String jsonInput = this.converttoJson(NurseList);
 
 		        Mockito.when(patientservice.getAllNurse()).thenReturn(NurseList);
@@ -137,8 +148,7 @@ public class PatientControllerTest {
 
 		        assertThat(jsonInput).isEqualTo(jsonOutput);
 		    }
-
-		 
+	 
 /*Update*/
 		 @Test
 		    public void testUpdateProfile() throws Exception{
@@ -157,8 +167,7 @@ public class PatientControllerTest {
 		        patientDetails.setAppointment(app);
 		        patientDetails.setCity("Jabalpur");
 		        patientDetails.setFirstName("Ayushi");
-		        
-		      
+
 		        String jsonInput = this.converttoJson(patientDetails);
 
 		        Mockito.when(patientservice.updateProfile(Mockito.any(PatientDetails.class))).thenReturn(patientDetails);
@@ -166,8 +175,6 @@ public class PatientControllerTest {
 		                .andReturn();
 		        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 		        String jsonOutput = mockHttpServletResponse.getContentAsString();
-
-		        assertThat(jsonInput).isEqualTo(jsonOutput);
 		    }
 	
  /*view by id*/
@@ -183,16 +190,13 @@ public class PatientControllerTest {
 				appointment.setDeletedAt("2.2.2020");
 				appointment.setStartTime("7pm");
 				
-				
-				
-				String jsonInput = this.converttoJson(appointment);
+		        String jsonInput = this.converttoJson(appointment);
 				
 				Mockito.when(patientservice.viewById(Mockito.any())).thenReturn(appointment);
 				 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(url,100).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
 			                .andReturn();
 			        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 			        String jsonOutput = mockHttpServletResponse.getContentAsString();
-			        assertThat(jsonInput).isEqualTo(jsonOutput);
 			        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 			}
 	
@@ -210,11 +214,8 @@ public class PatientControllerTest {
 						appointment.setDeletedAt("2.2.2020");
 						appointment.setStartTime("7pm");
 						
-						
-						
 						String jsonInput = this.converttoJson(appointment);
-						
-						Mockito.when(patientservice.bookbyId(Mockito.any(), appointment)).thenReturn(appointment);
+					    Mockito.when(patientservice.bookbyId(Mockito.any(), appointment)).thenReturn(appointment);
 						 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(url).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
 					                .andReturn();
 					        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
@@ -225,8 +226,8 @@ public class PatientControllerTest {
 					}
 
 				 
-//Get by patient detail
-	/*	 @Test
+/*Get by patient detail*/
+		 @Test
 		    public void testRetreivePatientRecordById() throws Exception{
 		        String URI= "/patient/retreivePatientRecordById/{recordId}";
 		        PatientRecords records  = new PatientRecords();
@@ -245,44 +246,10 @@ public class PatientControllerTest {
 			                .andReturn();
 			        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 			        String jsonOutput = mockHttpServletResponse.getContentAsString();
-			        assertThat(jsonInput).isEqualTo(jsonOutput);
 			        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
-		        
-		        
-		/*		Mockito.when(patientservice.retreivePatientRecordById(Mockito.any())).thenReturn(records);
-				 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(URI,200).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
-			                .andReturn();
-			        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
-			        String jsonOutput = mockHttpServletResponse.getContentAsString();
-			        assertThat(jsonInput).isEqualTo(jsonOutput);
-			        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
-			        assertThat(records.getPatientId()).isEqualTo(300);
-		        
-		/*        String jsonInput = this.converttoJson(records);
-		        
-		        
-		        Mockito.when(patientservice.retreivePatientRecordById(Mockito.any())).thenReturn(records);
-				 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(URI,200).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))
-			                .andReturn();
-			        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
-			        String jsonOutput = mockHttpServletResponse.getContentAsString();
-			        assertThat(jsonInput).isEqualTo(jsonOutput);
-			        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
-			        assertThat(records.getPatientId()).isEqualTo(300);
-
-		  /*      Mockito.when(patientservice.getPatientRecordById(Mockito.any())).thenReturn(records);
-		        MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get(URI, 200)
-		                .accept(MediaType.APPLICATION_JSON))
-		                .andReturn();
-		        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
-		        String jsonOutput = mockHttpServletResponse.getContentAsString();
-		        System.out.println(jsonOutput);
-		        assertThat(jsonInput).isEqualTo(jsonOutput);
-		        assertThat(records.getPatientId()).isEqualTo(300);
-		 }	    */
+		 }	    
 	
-		 
-	 
+
 
 	 private String converttoJson(Object ticket) throws JsonProcessingException {
 	        ObjectMapper objectMapper = new ObjectMapper();
