@@ -1,9 +1,7 @@
 package com.cg.mHealthSystem.services;
 
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.cg.mHealthSystem.entity.Appointments;
-import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Nurse;
 import com.cg.mHealthSystem.entity.PatientDetails;

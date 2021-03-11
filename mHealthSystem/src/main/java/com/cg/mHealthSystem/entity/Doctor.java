@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Doctor {
@@ -16,7 +17,7 @@ public class Doctor {
     private Integer doctorId;
    
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
    	@JoinColumn(name ="empId")
     private Employee employee ;
     @OneToOne(cascade = CascadeType.ALL)
@@ -27,6 +28,7 @@ public class Doctor {
     @OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="deptId")
     private Department department ;
+    @NotNull
     private Integer consultingFee;
     
 	public Integer getDoctorId() {

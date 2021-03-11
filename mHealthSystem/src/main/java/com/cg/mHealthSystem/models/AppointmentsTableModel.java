@@ -70,7 +70,7 @@ public class AppointmentsTableModel {
 	}
 	public AppointmentsTableModel() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	

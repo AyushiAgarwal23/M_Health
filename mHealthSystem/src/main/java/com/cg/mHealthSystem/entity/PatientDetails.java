@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 
@@ -24,16 +27,20 @@ public class PatientDetails {
 	@Column
 	private Integer recordId;
 	@Column
+	@NotNull
 	private String firstName;
 	@Column
 	private String lastName;
 	@Column
 	private String middleName;
 	@Column
+	@NotNull
+	@Size(min=10,max=10)
 	private String phoneNo;
 	@Column
 	private String gender;
 	@Column
+	@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$",message= "Enter valid date of birth in dd/mm/yyyy format")
 	private String dateOfBirth;
 	@Column
 	private String street;
@@ -44,6 +51,8 @@ public class PatientDetails {
 	@Column
 	private String pincode;
 	@Column
+	@NotNull
+	@Size(min=10,max=10)
 	private String idProof;
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="rId")

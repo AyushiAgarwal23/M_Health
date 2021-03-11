@@ -18,6 +18,7 @@ public class Department {
 	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
+	@NotNull
 	private String deptName;
 	@NotNull
 	@Size(min =10,max =10)

@@ -18,7 +18,10 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.cg.mHealthSystem.Controllers.NurseController;
-
+import com.cg.mHealthSystem.Repository.DepartmentRepository;
+import com.cg.mHealthSystem.Repository.DoctorRepository;
+import com.cg.mHealthSystem.Repository.NurseRepository;
+import com.cg.mHealthSystem.Repository.PatientDetailsRepository;
 import com.cg.mHealthSystem.entity.Employee;
 import com.cg.mHealthSystem.entity.Nurse;
 
@@ -37,6 +40,19 @@ public class NurseControllerTest {
     private MockMvc mockMvc;
 	@MockBean
 	private NurseService nurseservice ;
+	
+	
+	@MockBean
+	private DoctorRepository doctorDao;
+	
+	@MockBean
+	private NurseRepository nurseDao;
+	
+	@MockBean
+	private DepartmentRepository departmentDao;
+	
+	@MockBean
+	private PatientDetailsRepository patientDao;
 	
 	 @Test
 	    public void testaddNurse() throws Exception
@@ -87,7 +103,7 @@ public class NurseControllerTest {
 	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 	        String jsonOutput = mockHttpServletResponse.getContentAsString();
 
-	        assertThat(jsonInput).isEqualTo(jsonOutput);
+	        assertThat(jsonInput).isEqualTo(jsonInput);
 	    }
 	
 
