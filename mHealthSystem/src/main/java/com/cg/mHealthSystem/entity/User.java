@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="Table123")
@@ -15,7 +16,9 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
 	private String firstName;
+	@Pattern(regexp="\"^[A-Za-z_][a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+$\"")
 	private String emailId;
+	
 	private String password;
 	
 	@OneToOne

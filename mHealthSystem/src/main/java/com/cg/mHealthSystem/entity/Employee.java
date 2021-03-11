@@ -4,22 +4,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+import javax.validation.constraints.Size;
 
 @Entity
 public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer empId;
+	@NotNull
 	private String firstName;
 	private String middleName ;
 	private String  lastName ;
+	@NotNull
+	@Size(min=10,max=10)
 	private String mobileNo;
 	private String gender;
 	private String street ;
+	
+	//@Pattern(regexp="^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$",message= "Enter valid date of birth in dd/mm/yyyy format")
 	private String dateOfBirth;
 	private String city ;
 	private String state ;
 	private String pincode ;
+	@NotNull
+	@Size(min=12,max=12)
 	private String idProof ;
 	
 	public Integer getEmpId() {

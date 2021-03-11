@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.mHealthSystem.Controllers.PatientController;
+import com.cg.mHealthSystem.Exception.ResourceNotFoundException;
 import com.cg.mHealthSystem.Repository.AppointmentsRepository;
 import com.cg.mHealthSystem.Repository.DoctorRepository;
 import com.cg.mHealthSystem.Repository.PatientRecordsRepository;
 import com.cg.mHealthSystem.entity.Appointments;
 import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
-import com.cg.mHealthSystem.entity.PatientDetails;
 import com.cg.mHealthSystem.entity.PatientRecords;
 import com.cg.mHealthSystem.services.DoctorService;
 
@@ -46,7 +46,11 @@ public class DoctorServiceImp implements DoctorService {
 	public Appointments viewAppointment(Integer appointmentId) 
 	{
 		logger.info("In Doctor Service, viewAppointment method");
-		return aDao.findById(appointmentId).get();
+		if(aDao.findById(appointmentId).isPresent())
+		{
+			return aDao.findById(appointmentId).get();
+		}
+		throw new ResourceNotFoundException();
 	}
 	
 	@Autowired
@@ -56,8 +60,13 @@ public class DoctorServiceImp implements DoctorService {
 	public PatientRecords patientRecord(Integer patientId) 
 	{
 		logger.info("In Doctor Service, patientRecord method");
-		return prDao.findById(patientId).get();
+		if(prDao.findById(patientId).isPresent())
+		{
+			return prDao.findById(patientId).get();
+		}
 		
+		throw new ResourceNotFoundException();
+	
 		
 	}
 

@@ -93,8 +93,10 @@ public class AdminControllerTest {
 		Nurse nurse = new Nurse();
 		Employee employee = new Employee();
 		employee.setEmpId(77);
+		employee.setMobileNo("8877808070");
 		employee.setFirstName("ayush");
 		employee.setLastName("Ranjan");
+		employee.setIdProof("123456789104");
 		nurse.setEmployee(employee);
 		nurse.setNurseFee(20000);
 		nurse.setNurseId(101);
@@ -151,6 +153,9 @@ public class AdminControllerTest {
 		employee.setEmpId(77);
 		employee.setFirstName("ayush");
 		employee.setLastName("Ranjan");
+		employee.setDateOfBirth("10/10/2012");
+		employee.setMobileNo("8877808070");
+		employee.setIdProof("123456789102");
 		nurse.setEmployee(employee);
 		nurse.setNurseFee(20000);
 		nurse.setNurseId(101);
@@ -176,7 +181,7 @@ public class AdminControllerTest {
 		department.setDeptId(1);
 		department.setDeptName("gyno");
 		department.setEmailId("gynco@capg.com");
-		department.setPhoneNo("723875");
+		department.setPhoneNo("8877808070");
 		String jsonInput = this.converttoJson(department);
 		Mockito.when(adminservice.addDepartment(Mockito.any(Department.class))).thenReturn(department);
 		 MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.post(url).accept(MediaType.APPLICATION_JSON).content(jsonInput).contentType(MediaType.APPLICATION_JSON))

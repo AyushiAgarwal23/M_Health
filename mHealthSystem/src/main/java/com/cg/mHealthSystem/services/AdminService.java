@@ -1,12 +1,12 @@
 package com.cg.mHealthSystem.services;
 
-import java.util.Optional;
+
 
 import com.cg.mHealthSystem.entity.Department;
 
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Nurse;
-import com.cg.mHealthSystem.entity.PatientDetails;
+
 
 public interface AdminService {
 	

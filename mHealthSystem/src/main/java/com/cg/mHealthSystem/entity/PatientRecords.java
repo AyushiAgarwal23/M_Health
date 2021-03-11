@@ -52,7 +52,7 @@ public class PatientRecords {
 	}
 	public PatientRecords() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 }

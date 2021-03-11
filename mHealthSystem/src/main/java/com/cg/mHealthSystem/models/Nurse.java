@@ -43,7 +43,7 @@ public class Nurse {
 	}
 	public Nurse() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	
 
