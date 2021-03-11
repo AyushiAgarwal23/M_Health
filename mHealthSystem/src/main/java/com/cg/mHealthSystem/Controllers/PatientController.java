@@ -82,7 +82,7 @@ private static final Logger logger=LoggerFactory.getLogger(PatientController.cla
 			 
 			 Integer ID= appointment.getDoctorId();
 			 Optional<Doctor> doctor= doctorDao.findById(ID);
-			 if(doctor.isEmpty()) {
+			 if(doctor.isPresent()) {
 				 throw new ResourceNotFoundException("Doctor Not found");
 			 }
 			 Doctor doctor1= doctor.get();

@@ -86,7 +86,7 @@ public class PatientServiceImp implements PatientService{
 	@Override
 	public PatientDetails updateProfile(PatientDetails patientDetails) {
 		 PatientDetails patientDetails1=new  PatientDetails();
-		 if(!pDao.findById(patientDetails.getPatientId()).isEmpty()){
+		 if(!pDao.findById(patientDetails.getPatientId()).isPresent()){
 			  patientDetails1 = pDao.findById(patientDetails.getPatientId()).get();
 		}
 		 
