@@ -39,6 +39,7 @@ public class AdminServiceImp implements AdminService {
 	@Autowired
 	private DepartmentRepository departmentDao ;
 
+	@Autowired
 	private PatientDetailsRepository patientDao;
 	
 	private static final Logger logger=LoggerFactory.getLogger(PatientController.class);

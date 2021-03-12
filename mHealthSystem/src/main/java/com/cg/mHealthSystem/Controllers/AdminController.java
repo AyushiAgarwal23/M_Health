@@ -50,7 +50,7 @@ public class AdminController {
 	private AdminService adminservice ;
 	
 
-	private static final Logger logger=LoggerFactory.getLogger(PatientController.class);
+	private static final Logger logger=LoggerFactory.getLogger(AdminController.class);
 
 	@Autowired
 	private  DoctorRepository  doctorDao;
@@ -59,6 +59,7 @@ public class AdminController {
 	
 	@Autowired
 	private DepartmentRepository departmentDao ;
+	
 	@Autowired
 	private PatientDetailsRepository patientDao;
 
@@ -140,7 +141,9 @@ public class AdminController {
 
 		logger.info("In admin controller, delete Patient method");
 		
+		
 		Optional<PatientDetails> patient =  patientDao.findById(patientId);
+		
 		if(patient.isPresent())
 		{
 			return adminservice.removePatient(patientId);
