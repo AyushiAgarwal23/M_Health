@@ -37,15 +37,14 @@ import com.cg.mHealthSystem.services.AdminService;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
-
+/**
+ * 
+ * @author ayushranjan
+ *Admin Controller Test Class 
+ *
+ */
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest
-//@AutoConfigureMockMvc
-
-
-
-//@RunWith(SpringRunner.class)
 @WebMvcTest(value = AdminController.class)
 public class AdminControllerTest {
 	@Autowired
@@ -65,6 +64,11 @@ public class AdminControllerTest {
 	
 	@MockBean
 	private AdminService adminservice ;
+	
+/**
+ * Testing for adding a new Doctor 
+ * 
+ */
 	@Test
 	public void testNewDoctor() throws Exception
 	{
@@ -95,6 +99,11 @@ public class AdminControllerTest {
 	        assertThat(jsonInput).isEqualTo(jsonOutput);
 	        Assert.assertEquals(HttpStatus.OK.value(), mockHttpServletResponse.getStatus());
 	}
+	
+/**
+ * Testing for adding a new Nurse 	
+ * 
+ */
 	@Test
 	public void testNewNurse() throws Exception
 	{
@@ -122,6 +131,9 @@ public class AdminControllerTest {
 		
 	}
 	
+/**
+ * Testing for deleting a doctor 
+ */
     @Test
     public void testDeleteDoctor() throws Exception{
         String URI = "/admin//deleteDoctor/{doctorId}";
@@ -152,7 +164,9 @@ public class AdminControllerTest {
         Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
 
     }
-    
+/**
+ *    Testing for deleting a nurse 
+ */
     @Test
     public void testDeleteNurse() throws Exception{
         String URI = "/admin/deleteNurse/{nurseId}";
@@ -181,7 +195,10 @@ public class AdminControllerTest {
         Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
 
     }
-    
+
+ /**
+  * Testing for adding new Department 
+  */
     @Test
 	public void testNewDepartment() throws Exception
 	{
@@ -202,7 +219,9 @@ public class AdminControllerTest {
 		
 		
 	}
-	
+/**
+ * Testing for deleting a department 
+ */
     
     @Test
     public void testDeleteDepartment() throws Exception  {
@@ -226,6 +245,10 @@ public class AdminControllerTest {
 		
 		
     }
+/**
+ *     testing deleting a patient 
+ */
+    
 	@Test
     public void testDeletePatient() throws Exception{
         String URI = "/admin/deletePatient/{patientId}";
@@ -243,7 +266,9 @@ public class AdminControllerTest {
         Assert.assertEquals(HttpStatus.valueOf("NOT_FOUND").value(), mockHttpServletResponse.getStatus());
 
     }
-    
+ /**
+  * Method to convert Object to Json 
+  */
     private String converttoJson(Object ticket) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(ticket);

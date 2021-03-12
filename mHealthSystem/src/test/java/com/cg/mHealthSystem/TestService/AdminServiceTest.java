@@ -26,6 +26,12 @@ import com.cg.mHealthSystem.services.AdminService;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
+/**
+ * 
+ * @author ayushranjan
+ *Admin Controller Service Test Class 
+ *
+ */
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -44,7 +50,9 @@ public class AdminServiceTest {
 	private PatientDetailsRepository patientsDao;
 	@Autowired
 	private AdminService adminservice;
-	
+/**
+ * Testing for adding doctor 	
+ */
 	@Test
 	public void TestAddDoctor()
 	{
@@ -69,6 +77,10 @@ public class AdminServiceTest {
 	        assertThat(adminservice.addDoctor(doctor)).isEqualTo(doctor);
 		
 	}
+	
+/**
+ * Testing for adding a nurse 	
+ */
 	@Test
 	public void TestAddNurse()
 	{
@@ -84,6 +96,10 @@ public class AdminServiceTest {
 		Mockito.when(nurseDao.save(nurse)).thenReturn(nurse);
         assertThat(adminservice.addNurse(nurse)).isEqualTo(nurse);
 	}
+	
+/**
+ * Testing for adding a department 
+ */
 	@Test
 	public void TestAddDepartment()
 	{
@@ -96,7 +112,10 @@ public class AdminServiceTest {
         assertThat(adminservice.addDepartment(department)).isEqualTo(department);
 		
 	}
-	
+
+/**
+ * 	Testing for deleting a doctor by Id 
+ */
 	@Test
 	public void testDeleteDoctorById() throws Exception
 	{
@@ -124,6 +143,10 @@ public class AdminServiceTest {
 		Assert.assertEquals(doctorDao.findById(101),Optional.empty());
 		
 	}
+	
+/**
+ * Testing for deleting a nurse by id 
+ */
 	@Test
 	public void TestDeleteNurseById() throws Exception
 	{
@@ -144,7 +167,9 @@ Mockito.when(nurseDao.save(nurse)).thenReturn(nurse);
 		
 	}
 	
-	
+/**
+ * testing for deleting a department by id 	
+ */
 	@Test
 	public void TestDeleteDepartmentById() throws Exception
 	{
@@ -159,6 +184,11 @@ Mockito.when(nurseDao.save(nurse)).thenReturn(nurse);
        Assert.assertEquals(departmentDao.findById(1),Optional.empty());
        
 	}
+	
+/**
+ * Testing for deleting a patient by Id 
+ * @throws Exception
+ */
 	@Test
 	public void TestDeletePatientById() throws Exception
 	{

@@ -1,3 +1,4 @@
+
 package com.cg.mHealthSystem.RepositoryTest;
 
 
@@ -20,6 +21,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ * AppointmentRepository Test cases 
+ */
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class AppointmentRepositoryTest {
@@ -29,6 +37,11 @@ public class AppointmentRepositoryTest {
 	@Autowired
     private TestEntityManager testEntityManager;
 	@Test
+	
+/**
+ * 	Testing for adding new appointment 
+ * 
+ */
 	public void testNewAppointment() throws Exception
 	{
 		Appointments appointment = getAppointment();
@@ -37,7 +50,11 @@ public class AppointmentRepositoryTest {
 		assertThat(getFromInDb).isEqualTo(saveInDb);
 				
 	}
-
+/**
+ *
+ * 
+ * Testing for getting all appointment 
+ */
 	
 	@Test
 	public void testGetAllAppointmnets() throws Exception
@@ -67,10 +84,12 @@ public class AppointmentRepositoryTest {
         Assert.assertEquals(2,  List.size());
 	}
 	
-
+/**
+ * 
+ * function for returning  an Appointment  
+ */
+	
 	public Appointments getAppointment() {
-		// TODO Auto-generated method stub
-		
 		Appointments appointment = new Appointments();
 		appointment.setAppointmentId(101);
 		appointment.setCreatedAt("06-03-2021");
@@ -81,12 +100,17 @@ public class AppointmentRepositoryTest {
 		appointment.setStartTime("7 pm ");
 		return appointment;
 	}
+/**
+ * 	
+ * Testing for deleting an appointment 
+ */
+	
 	@Test
 	public void testDeleteAppointmentById() throws Exception{
 		Appointments appointment1 = new Appointments();
 		appointment1.setAppointmentId(101);
 		appointment1.setCreatedAt("06-03-2021");
-	    appointment1.setDoctorId(701);
+		appointment1.setDoctorId(701);
 		appointment1.setPatientId(501);
 		appointment1.setEndTime("8 pm ");
 		appointment1.setDeletedAt("null");
@@ -108,6 +132,11 @@ public class AppointmentRepositoryTest {
         List<Appointments> tickets = (List<Appointments>) adao.findAll();
         Assert.assertEquals(tickets.size(), 1);
 	}
+	
+/**
+ * testing for updating Appointment 
+ * 	
+ */
 	@Test
 	public void testUpdateAppointment()
 	{

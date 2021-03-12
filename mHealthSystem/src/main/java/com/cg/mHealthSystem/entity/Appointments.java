@@ -8,6 +8,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ *This is Entity class for Appointment Table
+ */
+
 @Entity
 public class Appointments {
 	@Id

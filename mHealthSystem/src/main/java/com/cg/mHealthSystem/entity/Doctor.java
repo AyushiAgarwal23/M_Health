@@ -10,6 +10,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ *This is Entity class for Doctor Table
+ */
 @Entity
 public class Doctor {
     @Id

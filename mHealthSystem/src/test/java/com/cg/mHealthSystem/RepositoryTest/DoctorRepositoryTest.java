@@ -25,9 +25,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import java.util.Optional;
 
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
-
 public class DoctorRepositoryTest {
 	@Autowired
 	private DoctorRepository adao;
@@ -35,6 +35,7 @@ public class DoctorRepositoryTest {
 	@Autowired
     private TestEntityManager testEntityManager;
 	@Test
+
 	public void testNewAppointment() throws Exception
 	{
 		Doctor doctor = getDoctor();
@@ -58,17 +59,18 @@ public class DoctorRepositoryTest {
 		
 		testEntityManager.persist(doctor1);
         testEntityManager.persist(doctor2);
-        
         List<Doctor> List = (List<Doctor>) adao.findAll();
         Assert.assertEquals(2, List.size());
       }
+	
+
 	public Doctor getDoctor() {
+
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
 		doctor1.setConsultingFee(5000);
 		return doctor1;
 	}
-	
 	@Test
 	public void testDeleteDoctorById() throws Exception{
 		Doctor doctor1 = new Doctor();
@@ -83,6 +85,7 @@ public class DoctorRepositoryTest {
         List<Doctor> tickets = (List<Doctor>) adao.findAll();
         Assert.assertEquals(tickets.size(), 1);
 	}
+
 	
 	@Test
 	public void testUpdateDoctor()

@@ -17,6 +17,12 @@ import com.cg.mHealthSystem.Repository.DepartmentRepository;
 import com.cg.mHealthSystem.entity.Department;
 
 import junit.framework.Assert;
+/**
+ * 
+ * @author ayushranjan
+ *
+ *DepartmentRepository Testing class 
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -26,7 +32,11 @@ public class DepartmentRepositoryTest {
 	
 	@Autowired
     private TestEntityManager testEntityManager;
-	
+/**
+ * 
+ * Testing for adding new Department 	
+ * 
+ */
 	@Test
 	public void testNewDepartment() throws Exception
 	{
@@ -38,7 +48,11 @@ public class DepartmentRepositoryTest {
 				
 	}
 	
-	
+/**
+ * 
+ * Testing for getting all department 	
+ * 
+ */
 	@Test
 	public void testGetAllDepartments() throws Exception
 	{
@@ -60,7 +74,11 @@ public class DepartmentRepositoryTest {
         List<Department> List = (List<Department>) ddao.findAll();
         Assert.assertEquals(2,  List.size());
 	}
-	
+/**
+ * 
+ * Testing for deleting an department using ID	
+ * 
+ */
 	@Test
 	public void testDeleteDepartmentById() throws Exception{
 		Department department1  = new Department();
@@ -82,6 +100,11 @@ public class DepartmentRepositoryTest {
         Assert.assertEquals(List.size(), 1);
 		
 	}
+	
+/**
+ * 
+ * Testing for updating department . Changing its email id 	
+ */
 	@Test
 	public void testUpdateDepartment()
 	{
@@ -97,8 +120,13 @@ public class DepartmentRepositoryTest {
 		 testEntityManager.persist(getFromDb);
 		assertThat(getFromDb.getEmailId()).isEqualTo("ayushranjan@gmail.com");
 	}
+	/**
+	 * 
+	 * Method for returning an department object when called 
+	 * 
+	 */
 	private Department getDepartment() {
-		// TODO Auto-generated method stub
+		
 		
 		Department department  = new Department();
 		department.setDeptId(101);

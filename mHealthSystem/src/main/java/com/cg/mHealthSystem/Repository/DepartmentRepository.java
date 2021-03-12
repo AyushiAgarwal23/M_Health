@@ -5,7 +5,12 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.cg.mHealthSystem.entity.Department;
 
-
+/**
+ * 
+ * @author ayushranjan
+ *
+ *Department Repository interface which extends CrudRepository 
+ */
 
 
 
