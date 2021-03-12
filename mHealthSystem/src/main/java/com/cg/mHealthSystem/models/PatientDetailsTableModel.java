@@ -1,3 +1,9 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Patient details Entity
+    */
 
 package com.cg.mHealthSystem.models;
 import javax.validation.constraints.NotNull;
@@ -153,7 +159,6 @@ public class PatientDetailsTableModel {
 	}
 	public PatientDetailsTableModel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 

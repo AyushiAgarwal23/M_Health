@@ -1,3 +1,9 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Appointment Entity
+    */
 package com.cg.mHealthSystem.models;
 
 import javax.validation.constraints.Pattern;

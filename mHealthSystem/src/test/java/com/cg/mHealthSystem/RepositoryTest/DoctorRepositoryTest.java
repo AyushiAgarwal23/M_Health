@@ -1,3 +1,10 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Testing Doctor Repository
+    */
+
 package com.cg.mHealthSystem.RepositoryTest;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -58,26 +65,22 @@ public class DoctorRepositoryTest {
 	
 
 	public Doctor getDoctor() {
-	
+
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
 		doctor1.setConsultingFee(5000);
 		return doctor1;
 	}
-
 	@Test
 	public void testDeleteDoctorById() throws Exception{
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
 		doctor1.setConsultingFee(5000);
-		
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
 		doctor2.setConsultingFee(9000);
-		
 		Doctor doctor = testEntityManager.persist(doctor1);
         testEntityManager.persist(doctor2);
-        
         testEntityManager.remove(doctor);
         List<Doctor> tickets = (List<Doctor>) adao.findAll();
         Assert.assertEquals(tickets.size(), 1);

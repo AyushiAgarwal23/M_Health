@@ -1,3 +1,12 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Entity class
+    */
+
+
+
 package com.cg.mHealthSystem.entity;
 
 
@@ -41,8 +50,8 @@ public class PatientDetails {
 	@Column
 	private String middleName;
 	@Column
-	@NotNull
-	@Size(min=10,max=10)
+//	@NotNull
+//	@Size(min=10,max=10)
 	private String phoneNo;
 	@Column
 	private String gender;
@@ -58,8 +67,8 @@ public class PatientDetails {
 	@Column
 	private String pincode;
 	@Column
-	@NotNull
-	@Size(min=10,max=10)
+//	@NotNull
+//	@Size(min=10,max=10)
 	private String idProof;
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="rId")
