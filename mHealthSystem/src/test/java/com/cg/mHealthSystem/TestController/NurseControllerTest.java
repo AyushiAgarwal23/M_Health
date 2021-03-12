@@ -103,7 +103,7 @@ public class NurseControllerTest {
 	        MockHttpServletResponse mockHttpServletResponse = mvcResult.getResponse();
 	        String jsonOutput = mockHttpServletResponse.getContentAsString();
 
-	        assertThat(jsonInput).isEqualTo(jsonInput);
+	        assertThat(jsonInput).isNotEqualTo(jsonOutput);
 	    }
 	
 

@@ -12,19 +12,14 @@ import javax.validation.constraints.Size;
 public class Department {
 	private Integer deptId;
 	
-	public Integer getDeptId() {
-		return deptId;
-	}
-	public void setDeptId(Integer deptId) {
-		this.deptId = deptId;
-	}
+	
 	@NotNull
 	private String deptName;
 	@NotNull
 	@Size(min =10,max =10)
 	private String phoneNo;
 	@NotNull
-	@Pattern(regexp="\"^[A-Za-z_][a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+$\"")
+	@Pattern(regexp="^[A-Za-z_][a-zA-Z0-9+_.-]+[@][a-zA-Z]+[.][a-zA-Z]+$")
 	private String emailId;
 	
 	public String getDeptName() {
@@ -46,7 +41,12 @@ public class Department {
 		this.emailId = emailId;
 	}
 	
-	
+	public Integer getDeptId() {
+		return deptId;
+	}
+	public void setDeptId(Integer deptId) {
+		this.deptId = deptId;
+	}
 	
 	
 
