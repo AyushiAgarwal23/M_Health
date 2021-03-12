@@ -1,3 +1,10 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Global exception
+    */
+
 package com.cg.mHealthSystem.Exception;
 
 import org.springframework.http.HttpStatus;

@@ -1,3 +1,10 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Testing Doctor Repository
+    */
+
 package com.cg.mHealthSystem.RepositoryTest;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -43,16 +50,10 @@ public class DoctorRepositoryTest {
 		
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
-		//doctor1.setUserId(111);
-		//doctor1.setEmpId(11111);
-		//doctor1.setDeptId(1010101);
 		doctor1.setConsultingFee(5000);
 		
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
-		//doctor2.setUserId(222);
-		//doctor2.setEmpId(22222);
-		//doctor2.setDeptId(20202020);
 		doctor2.setConsultingFee(9000);
 		
 		testEntityManager.persist(doctor1);
@@ -62,36 +63,22 @@ public class DoctorRepositoryTest {
         Assert.assertEquals(2, List.size());
       }
 	public Doctor getDoctor() {
-		// TODO Auto-generated method stub
-		
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
-		//doctor1.setUserId(111);
-		//doctor1.setEmpId(11111);
-		//doctor1.setDeptId(1010101);
 		doctor1.setConsultingFee(5000);
-		
 		return doctor1;
 	}
+	
 	@Test
 	public void testDeleteDoctorById() throws Exception{
 		Doctor doctor1 = new Doctor();
 		doctor1.setDoctorId(101);
-		/*doctor1.setUserId(111);
-		doctor1.setEmpId(11111);
-		doctor1.setDeptId(1010101);*/
 		doctor1.setConsultingFee(5000);
-		
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
-		//doctor2.setUserId(222);
-		//doctor2.setEmpId(22222);
-		//doctor2.setDeptId(20202020);
 		doctor2.setConsultingFee(9000);
-		
 		Doctor doctor = testEntityManager.persist(doctor1);
         testEntityManager.persist(doctor2);
-        
         testEntityManager.remove(doctor);
         List<Doctor> tickets = (List<Doctor>) adao.findAll();
         Assert.assertEquals(tickets.size(), 1);
@@ -102,15 +89,10 @@ public class DoctorRepositoryTest {
 	{
 		Doctor doctor2 = new Doctor();
 		doctor2.setDoctorId(102);
-		//doctor2.setUserId(222);
-		//doctor2.setEmpId(22222);
-		//doctor2.setDeptId(20202020);
 		doctor2.setConsultingFee(9000);
 		testEntityManager.persist(doctor2);
 		Doctor getFromDb = adao.findById(102).get();
-		//getFromDb.setUserId(999);
 		testEntityManager.persist(getFromDb);
-		//assertThat(getFromDb.getUserId()).isEqualTo(99
 		Assert.assertEquals(true, true);
 	}
 	

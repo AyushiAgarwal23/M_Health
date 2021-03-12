@@ -1,4 +1,11 @@
- package com.cg.mHealthSystem.models;
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Users Entity
+    */
+
+package com.cg.mHealthSystem.models;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -57,7 +64,6 @@ public class UserTableModel {
 		}
 		public rolesTableModel() {
 			super();
-			// TODO Auto-generated constructor stub
 		}
 		
 }

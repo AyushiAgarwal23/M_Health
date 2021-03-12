@@ -1,3 +1,9 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Patient Records Entity
+    */
 package com.cg.mHealthSystem.models;
 import org.springframework.stereotype.Component;
 

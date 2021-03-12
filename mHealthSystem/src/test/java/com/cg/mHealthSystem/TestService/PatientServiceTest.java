@@ -1,3 +1,10 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Testing Patient Service
+    */
+
 package com.cg.mHealthSystem.TestService;
 
 import org.junit.runner.RunWith;
@@ -52,12 +59,9 @@ public class PatientServiceTest {
 	
 	@MockBean
 	private PatientRecordsRepository recordsDao;
-	
-	
+
 	@Autowired
 	private PatientService patientservice=new PatientServiceImp();
-	
-	
 
 	
 /*Book By ID*/
@@ -66,21 +70,14 @@ public class PatientServiceTest {
 	{
 		Appointments appointment = new Appointments();
 		appointment.setAppointmentId(100);
-		appointment.setDoctorId(200);
+//		appointment.setDoctorId(200);
 		appointment.setPatientId(300);
 		appointment.setCreatedAt("1.1.2020");
 		appointment.setDeletedAt("2.2.2020");
 		appointment.setStartTime("7pm");
 		
-	//	Assert.N
-	//	 Mockito.when(appointmentDao.save(appointment)).thenReturn(appointment);
-	     //   assertThat(patientservice.bookbyId(appointment)).isEqualTo(appointment);
-		//System.out.println(patientservice.bookbyId(300, appointment));
-		//patientservice.bookbyId(300, appointment
-		//Assert.assertNull(null);
 		Assert.assertEquals(true, true);
-		 //Assert.assertNotSame(appointment, null);
-		
+
 	}
 /*Update Profile*/
 	
@@ -91,7 +88,6 @@ public class PatientServiceTest {
 	        patientDetails.setPatientId(100);
 	        PatientRecords records=new PatientRecords();
 	        records.setRecordId(200);
-	       // records.setPatientId(300);
 	        records.setPrescription("Hello");
 	        records.setHealthComplication("Serious Problem");
 	        patientDetails.setPatientrecords(records);
@@ -101,10 +97,8 @@ public class PatientServiceTest {
 	        patientDetails.setCity("Jabalpur");
 	        patientDetails.setFirstName("Ayushi");
 	  
-	    //    System.out.println(patientDetails);
 	        Mockito.when(detailsDao.save(patientDetails)).thenReturn(patientDetails);
 	        Assert.assertNotSame(patientDetails, app);
-	      //  Assert.assertNotSame(patientservice.updateProfile(patientDetails));  
 	   }
 
 	

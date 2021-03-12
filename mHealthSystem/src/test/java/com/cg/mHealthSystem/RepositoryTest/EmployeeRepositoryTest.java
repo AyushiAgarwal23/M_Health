@@ -1,3 +1,11 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Testing Employee Repository
+    */
+
+
 package com.cg.mHealthSystem.RepositoryTest;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +42,7 @@ public class EmployeeRepositoryTest {
 		assertThat(getFromInDb).isEqualTo(saveInDb);
 				
 	}
+	
 	@Test
 	public void testGetAllRoles() throws Exception
 	{
@@ -51,9 +60,7 @@ public class EmployeeRepositoryTest {
 		employee1.setState("MP");
 		employee1.setPincode("482001");
 		employee1.setIdProof("123456");
-		
-		
-
+	
 		Employee employee2 = new Employee();
 		employee2.setEmpId(102);
 		employee2.setFirstName("Ram");
@@ -77,7 +84,6 @@ public class EmployeeRepositoryTest {
 	
 	
 	public Employee getEmployee() {
-		// TODO Auto-generated method stub
 		
 		Employee employee = new Employee();
 		employee.setEmpId(101);
@@ -95,6 +101,7 @@ public class EmployeeRepositoryTest {
 		
 		return employee;
 	}
+	
 	@Test
 	public void testDeleteRoleById() throws Exception{
 				
@@ -111,9 +118,7 @@ public class EmployeeRepositoryTest {
 		employee1.setState("MP");
 		employee1.setPincode("482001");
 		employee1.setIdProof("123456");
-		
-		
-		
+
 		Employee employee2 = new Employee();
 		employee2.setEmpId(102);
 		employee2.setFirstName("Ram");
@@ -135,6 +140,7 @@ public class EmployeeRepositoryTest {
         List<Employee> tickets = (List<Employee>) adao.findAll();
         Assert.assertEquals(tickets.size(), 1);
 	}
+	
 	@Test
 	public void testUpdateRole()
 	{

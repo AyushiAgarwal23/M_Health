@@ -1,3 +1,10 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Roles Entity
+    */
+
 package com.cg.mHealthSystem.models;
 
 import org.springframework.stereotype.Component;
@@ -27,7 +34,6 @@ public class RolesTableModel {
 		}
 		public rolesTableModel() {
 			super();
-			// TODO Auto-generated constructor stub
 		}
 		
 }

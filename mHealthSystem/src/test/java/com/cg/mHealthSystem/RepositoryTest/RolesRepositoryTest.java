@@ -1,3 +1,11 @@
+
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Testing Roles Repository
+    */
+
 package com.cg.mHealthSystem.RepositoryTest;
 
  import org.junit.jupiter.api.Test;
@@ -35,8 +43,6 @@ public class RolesRepositoryTest {
 				
 	}
 	
-	
-	
 	@Test
 	public void testGetAllRoles() throws Exception
 	{
@@ -55,8 +61,6 @@ public class RolesRepositoryTest {
         List<Roles> List = (List<Roles>) adao.findAll();
         Assert.assertEquals(2, List.size());
 	}
-	
-	
 	public Roles getRole() {
 		// TODO Auto-generated method stub
 		
@@ -65,6 +69,7 @@ public class RolesRepositoryTest {
 		role.setRoleName("Raju");
 		return role;
 	}
+	
 	@Test
 	public void testDeleteRoleById() throws Exception{
 		Roles role1 = new Roles();
@@ -84,6 +89,7 @@ public class RolesRepositoryTest {
         List<Roles> tickets = (List<Roles>) adao.findAll();
         Assert.assertEquals(tickets.size(), 1);
 	}
+	
 	@Test
 	public void testUpdateRole()
 	{

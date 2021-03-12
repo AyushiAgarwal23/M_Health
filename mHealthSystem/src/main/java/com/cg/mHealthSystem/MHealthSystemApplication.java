@@ -1,5 +1,6 @@
 package com.cg.mHealthSystem;
 
+import org.junit.Assert;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,3 +12,4 @@ public class MHealthSystemApplication {
 	}
 
 }
+

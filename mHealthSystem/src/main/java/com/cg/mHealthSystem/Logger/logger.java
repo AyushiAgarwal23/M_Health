@@ -1,3 +1,10 @@
+/** 	
+    * @author Ayushi
+    * 
+    * 
+    * This is the Class for Logger
+    */
+
 package com.cg.mHealthSystem.Logger;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -86,7 +86,7 @@ public class AppointmentRepositoryTest {
 		Appointments appointment1 = new Appointments();
 		appointment1.setAppointmentId(101);
 		appointment1.setCreatedAt("06-03-2021");
-		appointment1.setDoctorId(701);
+	    appointment1.setDoctorId(701);
 		appointment1.setPatientId(501);
 		appointment1.setEndTime("8 pm ");
 		appointment1.setDeletedAt("null");
