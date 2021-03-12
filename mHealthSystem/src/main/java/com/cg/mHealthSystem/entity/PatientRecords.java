@@ -7,6 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ *This is Entity class for PatientRecords Table
+ */
 @Entity
 @Table(name="Records")
 public class PatientRecords {
