@@ -85,6 +85,7 @@ public class DoctorRepositoryTest {
 	}
 	
 	@Test
+	
 	public void testUpdateDoctor()
 	{
 		Doctor doctor2 = new Doctor();
