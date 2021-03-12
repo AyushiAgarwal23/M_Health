@@ -5,6 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ *This is Entity class for Appointment Table
+ */
+
 @Entity
 public class Appointments {
 	@Id

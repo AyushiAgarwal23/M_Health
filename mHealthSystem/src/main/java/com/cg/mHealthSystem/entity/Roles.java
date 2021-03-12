@@ -7,6 +7,12 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ *This is Entity class for roles Table
+ */
 @Entity
 public class Roles {
 	@Id

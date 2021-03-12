@@ -8,6 +8,12 @@ import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.Size;
 
+/**
+ * 
+ * @author ayushranjan
+ *
+ *This is Entity class for Employee Table
+ */
 @Entity
 public class Employee {
 	@Id

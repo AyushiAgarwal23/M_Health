@@ -7,6 +7,11 @@ import com.cg.mHealthSystem.entity.Department;
 import com.cg.mHealthSystem.entity.Doctor;
 import com.cg.mHealthSystem.entity.Nurse;
 
+/**
+ * 
+ * @author ayushranjan
+ * Admin Controller Service interface 
+ */
 
 public interface AdminService {
 	

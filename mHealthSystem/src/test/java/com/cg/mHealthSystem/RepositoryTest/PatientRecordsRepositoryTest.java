@@ -1,6 +1,6 @@
 package com.cg.mHealthSystem.RepositoryTest;
 
-//import org.junit.Test;
+
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +19,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import java.util.Optional;
+/**
+ * 
+ * @author ayushranjan
+ *
+ *PatientRecordsRepository Testing
+ */
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-
 public class PatientRecordsRepositoryTest {
 	@Autowired
 	private PatientRecordsRepository adao;
 
 	@Autowired
     private TestEntityManager testEntityManager;
+	
+/**
+ * Testing for adding new Nurse 	
+ * 
+ */
 	@Test
 	public void testNewNurse() throws Exception
 	{
@@ -38,6 +48,11 @@ public class PatientRecordsRepositoryTest {
 		assertThat(getFromInDb).isEqualTo(saveInDb);
 				
 	}
+	
+/**
+ * method which return 	PatientRecords object when called 
+ * 
+ */
 	public PatientRecords getPatientRecords() {
 		// TODO Auto-generated method stub
 		
@@ -51,7 +66,10 @@ public class PatientRecordsRepositoryTest {
 		
 		return patientRecords;
 	}
-	
+/**
+ * Testing for geting all nurse details 
+ * 
+ */
 	@Test
 	public void testGetAllNurses() throws Exception 
 	{
@@ -75,7 +93,11 @@ public class PatientRecordsRepositoryTest {
         List<PatientRecords> List = (List<PatientRecords>) adao.findAll();
         Assert.assertEquals(2,  List.size());
 	}
-	
+
+/**
+ * Testing for Deleting a nurse by ID	
+ * 
+ */
 	@Test
 	public void testDeleteNurseById() throws Exception{
 		

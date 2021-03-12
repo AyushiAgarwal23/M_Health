@@ -34,6 +34,14 @@ import com.cg.mHealthSystem.entity.Nurse;
 import com.cg.mHealthSystem.entity.PatientDetails;
 import com.cg.mHealthSystem.services.AdminService;
 
+/**
+ * 
+ * 
+ * @author ayushranjan
+ *
+ *This is the Admin Controller Class 
+ */
+
 @RestController
 @RequestMapping("/admin")
 @Validated
